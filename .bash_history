@@ -66,3 +66,21 @@ npm install node-sass@3.8.0
 exit
 gulp serve
 exit
+ls
+git remote add origin https://github.com/pabSec/freetio.git
+cd ..
+ls
+ls root/
+git status
+cd root/
+git init
+git remote add origin https://github.com/pabSec/freetio.git
+gi status
+git status
+git add .
+git commit -am "First commit"
+git config --global user.email "pcamposred@gmail.com"
+git config --global user.name "Pablo Campos"
+git commit -am "First commit"
+git push -u origin master
+exit
