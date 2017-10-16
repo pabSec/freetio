@@ -10,3 +10,46 @@
     </li>
   </ul>
 </div>
+
+<div class="container">
+  <form ng-submit="admin.createNew()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" ng-model="admin.theNew.title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" ng-model="admin.theNew.description">
+    </div>
+
+    <div class="form-group">
+      <label for="link">Link</label>
+      <input type="text" class="form-control" ng-model="admin.theNew.link">
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tag 1</label>
+      <input type="text" class="form-control" ng-model="tag">
+      <span class="input-group-btn">
+        <button class="btn btn-success btn-add" type="button" ng-click="admin.addTag(tag)">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </span>
+      <span ng-repeat="tag in admin.theNew.tags" class="label label-default">{{tag}}</span>
+    </div>
+
+
+    <div class="form-group">
+      <label for="avatar">Avatar</label>
+      <input type="text" class="form-control" ng-model="admin.theNew.avatar">
+    </div>
+
+    <div class="form-group">
+      <label for="thumbnail">Thumbnail</label>
+      <input type="text" class="form-control" ng-model="admin.theNew.thumbnail">
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>

@@ -84,3 +84,45 @@ git config --global user.name "Pablo Campos"
 git commit -am "First commit"
 git push -u origin master
 exit
+ls
+gulp serve
+gulp build
+node -v
+npm install -g n
+n -h
+n latest
+gulp build
+n
+node -v
+n 6.2.2
+node -v
+gulp build
+npm install gulp-imagemin
+gulp build
+gulp serve
+npm install angular-socialshare --save
+gulp serve
+gulp build
+npm uninstall optipng-bin
+npm install optipng-bin
+gulp build
+cd dist/
+NODE_ENV=production node./server
+cd ..
+NODE_ENV=production node./server
+cd dist/
+NODE_ENV=production node ./server
+ls
+ls server/
+ls
+ls -la
+cd ..
+ls
+git status
+git add .
+git commit -am "Analytitcs code"
+git push
+git commit -am "Image og"
+git commit -am "Getsitecontrol code"
+git push
+exit

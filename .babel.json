@@ -1673,19 +1673,6 @@
       "modules": {
         "imports": [
           {
-            "source": "../api/thing/thing.model",
-            "imported": [
-              "default"
-            ],
-            "specifiers": [
-              {
-                "kind": "named",
-                "imported": "default",
-                "local": "Thing"
-              }
-            ]
-          },
-          {
             "source": "../api/user/user.model",
             "imported": [
               "default"
@@ -1865,7 +1852,7 @@
       "basename": "seed"
     },
     "ignored": false,
-    "code": "/**\n * Populate DB with sample data on server start\n * to disable, edit config/environment/index.js, and set `seedDB: false`\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = seedDatabaseIfNeeded;\n\nvar _thing = require('../api/thing/thing.model');\n\nvar _thing2 = _interopRequireDefault(_thing);\n\nvar _user = require('../api/user/user.model');\n\nvar _user2 = _interopRequireDefault(_user);\n\nvar _environment = require('./environment/');\n\nvar _environment2 = _interopRequireDefault(_environment);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction seedDatabaseIfNeeded() {\n  if (_environment2.default.seedDB) {\n    _thing2.default.find({}).remove().then(function () {\n      var thing = _thing2.default.create({\n        name: 'Development Tools',\n        info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, ' + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, ' + 'Stylus, Sass, and Less.'\n      }, {\n        name: 'Server and Client integration',\n        info: 'Built with a powerful and fun stack: MongoDB, Express, ' + 'AngularJS, and Node.'\n      }, {\n        name: 'Smart Build System',\n        info: 'Build system ignores `spec` files, allowing you to keep ' + 'tests alongside code. Automatic injection of scripts and ' + 'styles into your index.html'\n      }, {\n        name: 'Modular Structure',\n        info: 'Best practice client and server structures allow for more ' + 'code reusability and maximum scalability'\n      }, {\n        name: 'Optimized Build',\n        info: 'Build process packs up your templates as a single JavaScript ' + 'payload, minifies your scripts/css/images, and rewrites asset ' + 'names for caching.'\n      }, {\n        name: 'Deployment Ready',\n        info: 'Easily deploy your app to Heroku or Openshift with the heroku ' + 'and openshift subgenerators'\n      });\n      return thing;\n    }).then(function () {\n      return console.log('finished populating things');\n    }).catch(function (err) {\n      return console.log('error populating things', err);\n    });\n\n    _user2.default.find({}).remove().then(function () {\n      _user2.default.create({\n        provider: 'local',\n        name: 'Test User',\n        email: 'test@example.com',\n        password: 'test'\n      }, {\n        provider: 'local',\n        role: 'admin',\n        name: 'Admin',\n        email: 'admin@example.com',\n        password: 'admin'\n      }).then(function () {\n        return console.log('finished populating users');\n      }).catch(function (err) {\n        return console.log('error populating users', err);\n      });\n    });\n  }\n}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlZWQuanMiXSwibmFtZXMiOlsic2VlZERhdGFiYXNlSWZOZWVkZWQiLCJzZWVkREIiLCJmaW5kIiwicmVtb3ZlIiwidGhlbiIsInRoaW5nIiwiY3JlYXRlIiwibmFtZSIsImluZm8iLCJjb25zb2xlIiwibG9nIiwiY2F0Y2giLCJlcnIiLCJwcm92aWRlciIsImVtYWlsIiwicGFzc3dvcmQiLCJyb2xlIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7QUFLQTs7Ozs7a0JBS3dCQSxvQjs7QUFKeEI7Ozs7QUFDQTs7OztBQUNBOzs7Ozs7QUFFZSxTQUFTQSxvQkFBVCxHQUFnQztBQUM3QyxNQUFHLHNCQUFPQyxNQUFWLEVBQWtCO0FBQ2hCLG9CQUFNQyxJQUFOLENBQVcsRUFBWCxFQUFlQyxNQUFmLEdBQ0dDLElBREgsQ0FDUSxZQUFNO0FBQ1YsVUFBSUMsUUFBUSxnQkFBTUMsTUFBTixDQUFhO0FBQ3ZCQyxjQUFNLG1CQURpQjtBQUV2QkMsY0FBTSxxRkFDRSw4REFERixHQUVFO0FBSmUsT0FBYixFQUtUO0FBQ0RELGNBQU0sK0JBREw7QUFFREMsY0FBTSw0REFDRTtBQUhQLE9BTFMsRUFTVDtBQUNERCxjQUFNLG9CQURMO0FBRURDLGNBQU0sNkRBQ0UsMkRBREYsR0FFRTtBQUpQLE9BVFMsRUFjVDtBQUNERCxjQUFNLG1CQURMO0FBRURDLGNBQU0sK0RBQ0U7QUFIUCxPQWRTLEVBa0JUO0FBQ0RELGNBQU0saUJBREw7QUFFREMsY0FBTSxrRUFDRSxnRUFERixHQUVFO0FBSlAsT0FsQlMsRUF1QlQ7QUFDREQsY0FBTSxrQkFETDtBQUVEQyxjQUFNLG1FQUNFO0FBSFAsT0F2QlMsQ0FBWjtBQTRCQSxhQUFPSCxLQUFQO0FBQ0QsS0EvQkgsRUFnQ0dELElBaENILENBZ0NRO0FBQUEsYUFBTUssUUFBUUMsR0FBUixDQUFZLDRCQUFaLENBQU47QUFBQSxLQWhDUixFQWlDR0MsS0FqQ0gsQ0FpQ1M7QUFBQSxhQUFPRixRQUFRQyxHQUFSLENBQVkseUJBQVosRUFBdUNFLEdBQXZDLENBQVA7QUFBQSxLQWpDVDs7QUFtQ0EsbUJBQUtWLElBQUwsQ0FBVSxFQUFWLEVBQWNDLE1BQWQsR0FDR0MsSUFESCxDQUNRLFlBQU07QUFDVixxQkFBS0UsTUFBTCxDQUFZO0FBQ1ZPLGtCQUFVLE9BREE7QUFFVk4sY0FBTSxXQUZJO0FBR1ZPLGVBQU8sa0JBSEc7QUFJVkMsa0JBQVU7QUFKQSxPQUFaLEVBS0c7QUFDREYsa0JBQVUsT0FEVDtBQUVERyxjQUFNLE9BRkw7QUFHRFQsY0FBTSxPQUhMO0FBSURPLGVBQU8sbUJBSk47QUFLREMsa0JBQVU7QUFMVCxPQUxILEVBWUNYLElBWkQsQ0FZTTtBQUFBLGVBQU1LLFFBQVFDLEdBQVIsQ0FBWSwyQkFBWixDQUFOO0FBQUEsT0FaTixFQWFDQyxLQWJELENBYU87QUFBQSxlQUFPRixRQUFRQyxHQUFSLENBQVksd0JBQVosRUFBc0NFLEdBQXRDLENBQVA7QUFBQSxPQWJQO0FBY0QsS0FoQkg7QUFpQkQ7QUFDRiIsImZpbGUiOiJzZWVkLmpzIiwic291cmNlUm9vdCI6Ii9yb290L3NlcnZlci9jb25maWciLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIFBvcHVsYXRlIERCIHdpdGggc2FtcGxlIGRhdGEgb24gc2VydmVyIHN0YXJ0XG4gKiB0byBkaXNhYmxlLCBlZGl0IGNvbmZpZy9lbnZpcm9ubWVudC9pbmRleC5qcywgYW5kIHNldCBgc2VlZERCOiBmYWxzZWBcbiAqL1xuXG4ndXNlIHN0cmljdCc7XG5pbXBvcnQgVGhpbmcgZnJvbSAnLi4vYXBpL3RoaW5nL3RoaW5nLm1vZGVsJztcbmltcG9ydCBVc2VyIGZyb20gJy4uL2FwaS91c2VyL3VzZXIubW9kZWwnO1xuaW1wb3J0IGNvbmZpZyBmcm9tICcuL2Vudmlyb25tZW50Lyc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIHNlZWREYXRhYmFzZUlmTmVlZGVkKCkge1xuICBpZihjb25maWcuc2VlZERCKSB7XG4gICAgVGhpbmcuZmluZCh7fSkucmVtb3ZlKClcbiAgICAgIC50aGVuKCgpID0+IHtcbiAgICAgICAgbGV0IHRoaW5nID0gVGhpbmcuY3JlYXRlKHtcbiAgICAgICAgICBuYW1lOiAnRGV2ZWxvcG1lbnQgVG9vbHMnLFxuICAgICAgICAgIGluZm86ICdJbnRlZ3JhdGlvbiB3aXRoIHBvcHVsYXIgdG9vbHMgc3VjaCBhcyBXZWJwYWNrLCBHdWxwLCBCYWJlbCwgVHlwZVNjcmlwdCwgS2FybWEsICdcbiAgICAgICAgICAgICAgICArICdNb2NoYSwgRVNMaW50LCBOb2RlIEluc3BlY3RvciwgTGl2ZXJlbG9hZCwgUHJvdHJhY3RvciwgUHVnLCAnXG4gICAgICAgICAgICAgICAgKyAnU3R5bHVzLCBTYXNzLCBhbmQgTGVzcy4nXG4gICAgICAgIH0sIHtcbiAgICAgICAgICBuYW1lOiAnU2VydmVyIGFuZCBDbGllbnQgaW50ZWdyYXRpb24nLFxuICAgICAgICAgIGluZm86ICdCdWlsdCB3aXRoIGEgcG93ZXJmdWwgYW5kIGZ1biBzdGFjazogTW9uZ29EQiwgRXhwcmVzcywgJ1xuICAgICAgICAgICAgICAgICsgJ0FuZ3VsYXJKUywgYW5kIE5vZGUuJ1xuICAgICAgICB9LCB7XG4gICAgICAgICAgbmFtZTogJ1NtYXJ0IEJ1aWxkIFN5c3RlbScsXG4gICAgICAgICAgaW5mbzogJ0J1aWxkIHN5c3RlbSBpZ25vcmVzIGBzcGVjYCBmaWxlcywgYWxsb3dpbmcgeW91IHRvIGtlZXAgJ1xuICAgICAgICAgICAgICAgICsgJ3Rlc3RzIGFsb25nc2lkZSBjb2RlLiBBdXRvbWF0aWMgaW5qZWN0aW9uIG9mIHNjcmlwdHMgYW5kICdcbiAgICAgICAgICAgICAgICArICdzdHlsZXMgaW50byB5b3VyIGluZGV4Lmh0bWwnXG4gICAgICAgIH0sIHtcbiAgICAgICAgICBuYW1lOiAnTW9kdWxhciBTdHJ1Y3R1cmUnLFxuICAgICAgICAgIGluZm86ICdCZXN0IHByYWN0aWNlIGNsaWVudCBhbmQgc2VydmVyIHN0cnVjdHVyZXMgYWxsb3cgZm9yIG1vcmUgJ1xuICAgICAgICAgICAgICAgICsgJ2NvZGUgcmV1c2FiaWxpdHkgYW5kIG1heGltdW0gc2NhbGFiaWxpdHknXG4gICAgICAgIH0sIHtcbiAgICAgICAgICBuYW1lOiAnT3B0aW1pemVkIEJ1aWxkJyxcbiAgICAgICAgICBpbmZvOiAnQnVpbGQgcHJvY2VzcyBwYWNrcyB1cCB5b3VyIHRlbXBsYXRlcyBhcyBhIHNpbmdsZSBKYXZhU2NyaXB0ICdcbiAgICAgICAgICAgICAgICArICdwYXlsb2FkLCBtaW5pZmllcyB5b3VyIHNjcmlwdHMvY3NzL2ltYWdlcywgYW5kIHJld3JpdGVzIGFzc2V0ICdcbiAgICAgICAgICAgICAgICArICduYW1lcyBmb3IgY2FjaGluZy4nXG4gICAgICAgIH0sIHtcbiAgICAgICAgICBuYW1lOiAnRGVwbG95bWVudCBSZWFkeScsXG4gICAgICAgICAgaW5mbzogJ0Vhc2lseSBkZXBsb3kgeW91ciBhcHAgdG8gSGVyb2t1IG9yIE9wZW5zaGlmdCB3aXRoIHRoZSBoZXJva3UgJ1xuICAgICAgICAgICAgICAgICsgJ2FuZCBvcGVuc2hpZnQgc3ViZ2VuZXJhdG9ycydcbiAgICAgICAgfSk7XG4gICAgICAgIHJldHVybiB0aGluZztcbiAgICAgIH0pXG4gICAgICAudGhlbigoKSA9PiBjb25zb2xlLmxvZygnZmluaXNoZWQgcG9wdWxhdGluZyB0aGluZ3MnKSlcbiAgICAgIC5jYXRjaChlcnIgPT4gY29uc29sZS5sb2coJ2Vycm9yIHBvcHVsYXRpbmcgdGhpbmdzJywgZXJyKSk7XG5cbiAgICBVc2VyLmZpbmQoe30pLnJlbW92ZSgpXG4gICAgICAudGhlbigoKSA9PiB7XG4gICAgICAgIFVzZXIuY3JlYXRlKHtcbiAgICAgICAgICBwcm92aWRlcjogJ2xvY2FsJyxcbiAgICAgICAgICBuYW1lOiAnVGVzdCBVc2VyJyxcbiAgICAgICAgICBlbWFpbDogJ3Rlc3RAZXhhbXBsZS5jb20nLFxuICAgICAgICAgIHBhc3N3b3JkOiAndGVzdCdcbiAgICAgICAgfSwge1xuICAgICAgICAgIHByb3ZpZGVyOiAnbG9jYWwnLFxuICAgICAgICAgIHJvbGU6ICdhZG1pbicsXG4gICAgICAgICAgbmFtZTogJ0FkbWluJyxcbiAgICAgICAgICBlbWFpbDogJ2FkbWluQGV4YW1wbGUuY29tJyxcbiAgICAgICAgICBwYXNzd29yZDogJ2FkbWluJ1xuICAgICAgICB9KVxuICAgICAgICAudGhlbigoKSA9PiBjb25zb2xlLmxvZygnZmluaXNoZWQgcG9wdWxhdGluZyB1c2VycycpKVxuICAgICAgICAuY2F0Y2goZXJyID0+IGNvbnNvbGUubG9nKCdlcnJvciBwb3B1bGF0aW5nIHVzZXJzJywgZXJyKSk7XG4gICAgICB9KTtcbiAgfVxufVxuIl19",
+    "code": "/**\n * Populate DB with sample data on server start\n * to disable, edit config/environment/index.js, and set `seedDB: false`\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = seedDatabaseIfNeeded;\n\nvar _user = require('../api/user/user.model');\n\nvar _user2 = _interopRequireDefault(_user);\n\nvar _environment = require('./environment/');\n\nvar _environment2 = _interopRequireDefault(_environment);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction seedDatabaseIfNeeded() {\n  if (_environment2.default.seedDB) {\n    _user2.default.find({}).remove().then(function () {\n      _user2.default.create({\n        provider: 'local',\n        name: 'Test User',\n        email: 'test@example.com',\n        password: 'test'\n      }, {\n        provider: 'local',\n        role: 'admin',\n        name: 'Admin',\n        email: 'admin@example.com',\n        password: 'admin'\n      }).then(function () {\n        return console.log('finished populating users');\n      }).catch(function (err) {\n        return console.log('error populating users', err);\n      });\n    });\n  }\n}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlZWQuanMiXSwibmFtZXMiOlsic2VlZERhdGFiYXNlSWZOZWVkZWQiLCJzZWVkREIiLCJmaW5kIiwicmVtb3ZlIiwidGhlbiIsImNyZWF0ZSIsInByb3ZpZGVyIiwibmFtZSIsImVtYWlsIiwicGFzc3dvcmQiLCJyb2xlIiwiY29uc29sZSIsImxvZyIsImNhdGNoIiwiZXJyIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7QUFLQTs7Ozs7a0JBSXdCQSxvQjs7QUFIeEI7Ozs7QUFDQTs7Ozs7O0FBRWUsU0FBU0Esb0JBQVQsR0FBZ0M7QUFDN0MsTUFBRyxzQkFBT0MsTUFBVixFQUFrQjtBQUNoQixtQkFBS0MsSUFBTCxDQUFVLEVBQVYsRUFBY0MsTUFBZCxHQUNHQyxJQURILENBQ1EsWUFBTTtBQUNWLHFCQUFLQyxNQUFMLENBQVk7QUFDVkMsa0JBQVUsT0FEQTtBQUVWQyxjQUFNLFdBRkk7QUFHVkMsZUFBTyxrQkFIRztBQUlWQyxrQkFBVTtBQUpBLE9BQVosRUFLRztBQUNESCxrQkFBVSxPQURUO0FBRURJLGNBQU0sT0FGTDtBQUdESCxjQUFNLE9BSEw7QUFJREMsZUFBTyxtQkFKTjtBQUtEQyxrQkFBVTtBQUxULE9BTEgsRUFZQ0wsSUFaRCxDQVlNO0FBQUEsZUFBTU8sUUFBUUMsR0FBUixDQUFZLDJCQUFaLENBQU47QUFBQSxPQVpOLEVBYUNDLEtBYkQsQ0FhTztBQUFBLGVBQU9GLFFBQVFDLEdBQVIsQ0FBWSx3QkFBWixFQUFzQ0UsR0FBdEMsQ0FBUDtBQUFBLE9BYlA7QUFjRCxLQWhCSDtBQWlCRDtBQUNGIiwiZmlsZSI6InNlZWQuanMiLCJzb3VyY2VSb290IjoiL3Jvb3Qvc2VydmVyL2NvbmZpZyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogUG9wdWxhdGUgREIgd2l0aCBzYW1wbGUgZGF0YSBvbiBzZXJ2ZXIgc3RhcnRcbiAqIHRvIGRpc2FibGUsIGVkaXQgY29uZmlnL2Vudmlyb25tZW50L2luZGV4LmpzLCBhbmQgc2V0IGBzZWVkREI6IGZhbHNlYFxuICovXG5cbid1c2Ugc3RyaWN0JztcbmltcG9ydCBVc2VyIGZyb20gJy4uL2FwaS91c2VyL3VzZXIubW9kZWwnO1xuaW1wb3J0IGNvbmZpZyBmcm9tICcuL2Vudmlyb25tZW50Lyc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIHNlZWREYXRhYmFzZUlmTmVlZGVkKCkge1xuICBpZihjb25maWcuc2VlZERCKSB7XG4gICAgVXNlci5maW5kKHt9KS5yZW1vdmUoKVxuICAgICAgLnRoZW4oKCkgPT4ge1xuICAgICAgICBVc2VyLmNyZWF0ZSh7XG4gICAgICAgICAgcHJvdmlkZXI6ICdsb2NhbCcsXG4gICAgICAgICAgbmFtZTogJ1Rlc3QgVXNlcicsXG4gICAgICAgICAgZW1haWw6ICd0ZXN0QGV4YW1wbGUuY29tJyxcbiAgICAgICAgICBwYXNzd29yZDogJ3Rlc3QnXG4gICAgICAgIH0sIHtcbiAgICAgICAgICBwcm92aWRlcjogJ2xvY2FsJyxcbiAgICAgICAgICByb2xlOiAnYWRtaW4nLFxuICAgICAgICAgIG5hbWU6ICdBZG1pbicsXG4gICAgICAgICAgZW1haWw6ICdhZG1pbkBleGFtcGxlLmNvbScsXG4gICAgICAgICAgcGFzc3dvcmQ6ICdhZG1pbidcbiAgICAgICAgfSlcbiAgICAgICAgLnRoZW4oKCkgPT4gY29uc29sZS5sb2coJ2ZpbmlzaGVkIHBvcHVsYXRpbmcgdXNlcnMnKSlcbiAgICAgICAgLmNhdGNoKGVyciA9PiBjb25zb2xlLmxvZygnZXJyb3IgcG9wdWxhdGluZyB1c2VycycsIGVycikpO1xuICAgICAgfSk7XG4gIH1cbn1cbiJdfQ==",
     "ast": null,
     "map": {
       "version": 3,
@@ -1878,27 +1865,25 @@
         "find",
         "remove",
         "then",
-        "thing",
         "create",
+        "provider",
         "name",
-        "info",
+        "email",
+        "password",
+        "role",
         "console",
         "log",
         "catch",
-        "err",
-        "provider",
-        "email",
-        "password",
-        "role"
+        "err"
       ],
-      "mappings": "AAAA;;;;;AAKA;;;;;kBAKwBA,oB;;AAJxB;;;;AACA;;;;AACA;;;;;;AAEe,SAASA,oBAAT,GAAgC;AAC7C,MAAG,sBAAOC,MAAV,EAAkB;AAChB,oBAAMC,IAAN,CAAW,EAAX,EAAeC,MAAf,GACGC,IADH,CACQ,YAAM;AACV,UAAIC,QAAQ,gBAAMC,MAAN,CAAa;AACvBC,cAAM,mBADiB;AAEvBC,cAAM,qFACE,8DADF,GAEE;AAJe,OAAb,EAKT;AACDD,cAAM,+BADL;AAEDC,cAAM,4DACE;AAHP,OALS,EAST;AACDD,cAAM,oBADL;AAEDC,cAAM,6DACE,2DADF,GAEE;AAJP,OATS,EAcT;AACDD,cAAM,mBADL;AAEDC,cAAM,+DACE;AAHP,OAdS,EAkBT;AACDD,cAAM,iBADL;AAEDC,cAAM,kEACE,gEADF,GAEE;AAJP,OAlBS,EAuBT;AACDD,cAAM,kBADL;AAEDC,cAAM,mEACE;AAHP,OAvBS,CAAZ;AA4BA,aAAOH,KAAP;AACD,KA/BH,EAgCGD,IAhCH,CAgCQ;AAAA,aAAMK,QAAQC,GAAR,CAAY,4BAAZ,CAAN;AAAA,KAhCR,EAiCGC,KAjCH,CAiCS;AAAA,aAAOF,QAAQC,GAAR,CAAY,yBAAZ,EAAuCE,GAAvC,CAAP;AAAA,KAjCT;;AAmCA,mBAAKV,IAAL,CAAU,EAAV,EAAcC,MAAd,GACGC,IADH,CACQ,YAAM;AACV,qBAAKE,MAAL,CAAY;AACVO,kBAAU,OADA;AAEVN,cAAM,WAFI;AAGVO,eAAO,kBAHG;AAIVC,kBAAU;AAJA,OAAZ,EAKG;AACDF,kBAAU,OADT;AAEDG,cAAM,OAFL;AAGDT,cAAM,OAHL;AAIDO,eAAO,mBAJN;AAKDC,kBAAU;AALT,OALH,EAYCX,IAZD,CAYM;AAAA,eAAMK,QAAQC,GAAR,CAAY,2BAAZ,CAAN;AAAA,OAZN,EAaCC,KAbD,CAaO;AAAA,eAAOF,QAAQC,GAAR,CAAY,wBAAZ,EAAsCE,GAAtC,CAAP;AAAA,OAbP;AAcD,KAhBH;AAiBD;AACF",
+      "mappings": "AAAA;;;;;AAKA;;;;;kBAIwBA,oB;;AAHxB;;;;AACA;;;;;;AAEe,SAASA,oBAAT,GAAgC;AAC7C,MAAG,sBAAOC,MAAV,EAAkB;AAChB,mBAAKC,IAAL,CAAU,EAAV,EAAcC,MAAd,GACGC,IADH,CACQ,YAAM;AACV,qBAAKC,MAAL,CAAY;AACVC,kBAAU,OADA;AAEVC,cAAM,WAFI;AAGVC,eAAO,kBAHG;AAIVC,kBAAU;AAJA,OAAZ,EAKG;AACDH,kBAAU,OADT;AAEDI,cAAM,OAFL;AAGDH,cAAM,OAHL;AAIDC,eAAO,mBAJN;AAKDC,kBAAU;AALT,OALH,EAYCL,IAZD,CAYM;AAAA,eAAMO,QAAQC,GAAR,CAAY,2BAAZ,CAAN;AAAA,OAZN,EAaCC,KAbD,CAaO;AAAA,eAAOF,QAAQC,GAAR,CAAY,wBAAZ,EAAsCE,GAAtC,CAAP;AAAA,OAbP;AAcD,KAhBH;AAiBD;AACF",
       "file": "seed.js",
       "sourceRoot": "/root/server/config",
       "sourcesContent": [
-        "/**\n * Populate DB with sample data on server start\n * to disable, edit config/environment/index.js, and set `seedDB: false`\n */\n\n'use strict';\nimport Thing from '../api/thing/thing.model';\nimport User from '../api/user/user.model';\nimport config from './environment/';\n\nexport default function seedDatabaseIfNeeded() {\n  if(config.seedDB) {\n    Thing.find({}).remove()\n      .then(() => {\n        let thing = Thing.create({\n          name: 'Development Tools',\n          info: 'Integration with popular tools such as Webpack, Gulp, Babel, TypeScript, Karma, '\n                + 'Mocha, ESLint, Node Inspector, Livereload, Protractor, Pug, '\n                + 'Stylus, Sass, and Less.'\n        }, {\n          name: 'Server and Client integration',\n          info: 'Built with a powerful and fun stack: MongoDB, Express, '\n                + 'AngularJS, and Node.'\n        }, {\n          name: 'Smart Build System',\n          info: 'Build system ignores `spec` files, allowing you to keep '\n                + 'tests alongside code. Automatic injection of scripts and '\n                + 'styles into your index.html'\n        }, {\n          name: 'Modular Structure',\n          info: 'Best practice client and server structures allow for more '\n                + 'code reusability and maximum scalability'\n        }, {\n          name: 'Optimized Build',\n          info: 'Build process packs up your templates as a single JavaScript '\n                + 'payload, minifies your scripts/css/images, and rewrites asset '\n                + 'names for caching.'\n        }, {\n          name: 'Deployment Ready',\n          info: 'Easily deploy your app to Heroku or Openshift with the heroku '\n                + 'and openshift subgenerators'\n        });\n        return thing;\n      })\n      .then(() => console.log('finished populating things'))\n      .catch(err => console.log('error populating things', err));\n\n    User.find({}).remove()\n      .then(() => {\n        User.create({\n          provider: 'local',\n          name: 'Test User',\n          email: 'test@example.com',\n          password: 'test'\n        }, {\n          provider: 'local',\n          role: 'admin',\n          name: 'Admin',\n          email: 'admin@example.com',\n          password: 'admin'\n        })\n        .then(() => console.log('finished populating users'))\n        .catch(err => console.log('error populating users', err));\n      });\n  }\n}\n"
+        "/**\n * Populate DB with sample data on server start\n * to disable, edit config/environment/index.js, and set `seedDB: false`\n */\n\n'use strict';\nimport User from '../api/user/user.model';\nimport config from './environment/';\n\nexport default function seedDatabaseIfNeeded() {\n  if(config.seedDB) {\n    User.find({}).remove()\n      .then(() => {\n        User.create({\n          provider: 'local',\n          name: 'Test User',\n          email: 'test@example.com',\n          password: 'test'\n        }, {\n          provider: 'local',\n          role: 'admin',\n          name: 'Admin',\n          email: 'admin@example.com',\n          password: 'admin'\n        })\n        .then(() => console.log('finished populating users'))\n        .catch(err => console.log('error populating users', err));\n      });\n  }\n}\n"
       ]
     },
-    "mtime": 1507831002477
+    "mtime": 1508176803935
   },
   "{\"filename\":\"/root/server/api/thing/thing.model.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/thing\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
     "metadata": {
@@ -3678,7 +3663,7 @@
       "basename": "routes"
     },
     "ignored": false,
-    "code": "/**\n * Main application routes\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function (app) {\n  // Insert routes below\n  app.use('/api/things', require('./api/thing'));\n  app.use('/api/users', require('./api/user'));\n\n  app.use('/auth', require('./auth').default);\n\n  // All undefined asset or api routes should return a 404\n  app.route('/:url(api|auth|components|app|bower_components|assets)/*').get(_errors2.default[404]);\n\n  // All other routes should redirect to the index.html\n  app.route('/*').get(function (req, res) {\n    res.sendFile(_path2.default.resolve(app.get('appPath') + '/index.html'));\n  });\n};\n\nvar _errors = require('./components/errors');\n\nvar _errors2 = _interopRequireDefault(_errors);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlcy5qcyJdLCJuYW1lcyI6WyJhcHAiLCJ1c2UiLCJyZXF1aXJlIiwiZGVmYXVsdCIsInJvdXRlIiwiZ2V0IiwicmVxIiwicmVzIiwic2VuZEZpbGUiLCJyZXNvbHZlIl0sIm1hcHBpbmdzIjoiQUFBQTs7OztBQUlBOzs7Ozs7a0JBS2UsVUFBU0EsR0FBVCxFQUFjO0FBQzNCO0FBQ0FBLE1BQUlDLEdBQUosQ0FBUSxhQUFSLEVBQXVCQyxRQUFRLGFBQVIsQ0FBdkI7QUFDQUYsTUFBSUMsR0FBSixDQUFRLFlBQVIsRUFBc0JDLFFBQVEsWUFBUixDQUF0Qjs7QUFFQUYsTUFBSUMsR0FBSixDQUFRLE9BQVIsRUFBaUJDLFFBQVEsUUFBUixFQUFrQkMsT0FBbkM7O0FBRUE7QUFDQUgsTUFBSUksS0FBSixDQUFVLDBEQUFWLEVBQ0VDLEdBREYsQ0FDTSxpQkFBTyxHQUFQLENBRE47O0FBR0E7QUFDQUwsTUFBSUksS0FBSixDQUFVLElBQVYsRUFDR0MsR0FESCxDQUNPLFVBQUNDLEdBQUQsRUFBTUMsR0FBTixFQUFjO0FBQ2pCQSxRQUFJQyxRQUFKLENBQWEsZUFBS0MsT0FBTCxDQUFnQlQsSUFBSUssR0FBSixDQUFRLFNBQVIsQ0FBaEIsaUJBQWI7QUFDRCxHQUhIO0FBSUQsQzs7QUFuQkQ7Ozs7QUFDQSIsImZpbGUiOiJyb3V0ZXMuanMiLCJzb3VyY2VSb290IjoiL3Jvb3Qvc2VydmVyIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBNYWluIGFwcGxpY2F0aW9uIHJvdXRlc1xuICovXG5cbid1c2Ugc3RyaWN0JztcblxuaW1wb3J0IGVycm9ycyBmcm9tICcuL2NvbXBvbmVudHMvZXJyb3JzJztcbmltcG9ydCBwYXRoIGZyb20gJ3BhdGgnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbihhcHApIHtcbiAgLy8gSW5zZXJ0IHJvdXRlcyBiZWxvd1xuICBhcHAudXNlKCcvYXBpL3RoaW5ncycsIHJlcXVpcmUoJy4vYXBpL3RoaW5nJykpO1xuICBhcHAudXNlKCcvYXBpL3VzZXJzJywgcmVxdWlyZSgnLi9hcGkvdXNlcicpKTtcblxuICBhcHAudXNlKCcvYXV0aCcsIHJlcXVpcmUoJy4vYXV0aCcpLmRlZmF1bHQpO1xuXG4gIC8vIEFsbCB1bmRlZmluZWQgYXNzZXQgb3IgYXBpIHJvdXRlcyBzaG91bGQgcmV0dXJuIGEgNDA0XG4gIGFwcC5yb3V0ZSgnLzp1cmwoYXBpfGF1dGh8Y29tcG9uZW50c3xhcHB8Ym93ZXJfY29tcG9uZW50c3xhc3NldHMpLyonKVxuICAgLmdldChlcnJvcnNbNDA0XSk7XG5cbiAgLy8gQWxsIG90aGVyIHJvdXRlcyBzaG91bGQgcmVkaXJlY3QgdG8gdGhlIGluZGV4Lmh0bWxcbiAgYXBwLnJvdXRlKCcvKicpXG4gICAgLmdldCgocmVxLCByZXMpID0+IHtcbiAgICAgIHJlcy5zZW5kRmlsZShwYXRoLnJlc29sdmUoYCR7YXBwLmdldCgnYXBwUGF0aCcpfS9pbmRleC5odG1sYCkpO1xuICAgIH0pO1xufVxuIl19",
+    "code": "/**\n * Main application routes\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nexports.default = function (app) {\n  // Insert routes below\n  app.use('/api/news', require('./api/new'));\n  app.use('/api/users', require('./api/user'));\n\n  app.use('/auth', require('./auth').default);\n\n  // All undefined asset or api routes should return a 404\n  app.route('/:url(api|auth|components|app|bower_components|assets)/*').get(_errors2.default[404]);\n\n  // All other routes should redirect to the index.html\n  app.route('/*').get(function (req, res) {\n    res.sendFile(_path2.default.resolve(app.get('appPath') + '/index.html'));\n  });\n};\n\nvar _errors = require('./components/errors');\n\nvar _errors2 = _interopRequireDefault(_errors);\n\nvar _path = require('path');\n\nvar _path2 = _interopRequireDefault(_path);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlcy5qcyJdLCJuYW1lcyI6WyJhcHAiLCJ1c2UiLCJyZXF1aXJlIiwiZGVmYXVsdCIsInJvdXRlIiwiZ2V0IiwicmVxIiwicmVzIiwic2VuZEZpbGUiLCJyZXNvbHZlIl0sIm1hcHBpbmdzIjoiQUFBQTs7OztBQUlBOzs7Ozs7a0JBS2UsVUFBU0EsR0FBVCxFQUFjO0FBQzNCO0FBQ0FBLE1BQUlDLEdBQUosQ0FBUSxXQUFSLEVBQXFCQyxRQUFRLFdBQVIsQ0FBckI7QUFDQUYsTUFBSUMsR0FBSixDQUFRLFlBQVIsRUFBc0JDLFFBQVEsWUFBUixDQUF0Qjs7QUFFQUYsTUFBSUMsR0FBSixDQUFRLE9BQVIsRUFBaUJDLFFBQVEsUUFBUixFQUFrQkMsT0FBbkM7O0FBRUE7QUFDQUgsTUFBSUksS0FBSixDQUFVLDBEQUFWLEVBQ0VDLEdBREYsQ0FDTSxpQkFBTyxHQUFQLENBRE47O0FBR0E7QUFDQUwsTUFBSUksS0FBSixDQUFVLElBQVYsRUFDR0MsR0FESCxDQUNPLFVBQUNDLEdBQUQsRUFBTUMsR0FBTixFQUFjO0FBQ2pCQSxRQUFJQyxRQUFKLENBQWEsZUFBS0MsT0FBTCxDQUFnQlQsSUFBSUssR0FBSixDQUFRLFNBQVIsQ0FBaEIsaUJBQWI7QUFDRCxHQUhIO0FBSUQsQzs7QUFuQkQ7Ozs7QUFDQSIsImZpbGUiOiJyb3V0ZXMuanMiLCJzb3VyY2VSb290IjoiL3Jvb3Qvc2VydmVyIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBNYWluIGFwcGxpY2F0aW9uIHJvdXRlc1xuICovXG5cbid1c2Ugc3RyaWN0JztcblxuaW1wb3J0IGVycm9ycyBmcm9tICcuL2NvbXBvbmVudHMvZXJyb3JzJztcbmltcG9ydCBwYXRoIGZyb20gJ3BhdGgnO1xuXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbihhcHApIHtcbiAgLy8gSW5zZXJ0IHJvdXRlcyBiZWxvd1xuICBhcHAudXNlKCcvYXBpL25ld3MnLCByZXF1aXJlKCcuL2FwaS9uZXcnKSk7XG4gIGFwcC51c2UoJy9hcGkvdXNlcnMnLCByZXF1aXJlKCcuL2FwaS91c2VyJykpO1xuXG4gIGFwcC51c2UoJy9hdXRoJywgcmVxdWlyZSgnLi9hdXRoJykuZGVmYXVsdCk7XG5cbiAgLy8gQWxsIHVuZGVmaW5lZCBhc3NldCBvciBhcGkgcm91dGVzIHNob3VsZCByZXR1cm4gYSA0MDRcbiAgYXBwLnJvdXRlKCcvOnVybChhcGl8YXV0aHxjb21wb25lbnRzfGFwcHxib3dlcl9jb21wb25lbnRzfGFzc2V0cykvKicpXG4gICAuZ2V0KGVycm9yc1s0MDRdKTtcblxuICAvLyBBbGwgb3RoZXIgcm91dGVzIHNob3VsZCByZWRpcmVjdCB0byB0aGUgaW5kZXguaHRtbFxuICBhcHAucm91dGUoJy8qJylcbiAgICAuZ2V0KChyZXEsIHJlcykgPT4ge1xuICAgICAgcmVzLnNlbmRGaWxlKHBhdGgucmVzb2x2ZShgJHthcHAuZ2V0KCdhcHBQYXRoJyl9L2luZGV4Lmh0bWxgKSk7XG4gICAgfSk7XG59XG4iXX0=",
     "ast": null,
     "map": {
       "version": 3,
@@ -3697,14 +3682,14 @@
         "sendFile",
         "resolve"
       ],
-      "mappings": "AAAA;;;;AAIA;;;;;;kBAKe,UAASA,GAAT,EAAc;AAC3B;AACAA,MAAIC,GAAJ,CAAQ,aAAR,EAAuBC,QAAQ,aAAR,CAAvB;AACAF,MAAIC,GAAJ,CAAQ,YAAR,EAAsBC,QAAQ,YAAR,CAAtB;;AAEAF,MAAIC,GAAJ,CAAQ,OAAR,EAAiBC,QAAQ,QAAR,EAAkBC,OAAnC;;AAEA;AACAH,MAAII,KAAJ,CAAU,0DAAV,EACEC,GADF,CACM,iBAAO,GAAP,CADN;;AAGA;AACAL,MAAII,KAAJ,CAAU,IAAV,EACGC,GADH,CACO,UAACC,GAAD,EAAMC,GAAN,EAAc;AACjBA,QAAIC,QAAJ,CAAa,eAAKC,OAAL,CAAgBT,IAAIK,GAAJ,CAAQ,SAAR,CAAhB,iBAAb;AACD,GAHH;AAID,C;;AAnBD;;;;AACA",
+      "mappings": "AAAA;;;;AAIA;;;;;;kBAKe,UAASA,GAAT,EAAc;AAC3B;AACAA,MAAIC,GAAJ,CAAQ,WAAR,EAAqBC,QAAQ,WAAR,CAArB;AACAF,MAAIC,GAAJ,CAAQ,YAAR,EAAsBC,QAAQ,YAAR,CAAtB;;AAEAF,MAAIC,GAAJ,CAAQ,OAAR,EAAiBC,QAAQ,QAAR,EAAkBC,OAAnC;;AAEA;AACAH,MAAII,KAAJ,CAAU,0DAAV,EACEC,GADF,CACM,iBAAO,GAAP,CADN;;AAGA;AACAL,MAAII,KAAJ,CAAU,IAAV,EACGC,GADH,CACO,UAACC,GAAD,EAAMC,GAAN,EAAc;AACjBA,QAAIC,QAAJ,CAAa,eAAKC,OAAL,CAAgBT,IAAIK,GAAJ,CAAQ,SAAR,CAAhB,iBAAb;AACD,GAHH;AAID,C;;AAnBD;;;;AACA",
       "file": "routes.js",
       "sourceRoot": "/root/server",
       "sourcesContent": [
-        "/**\n * Main application routes\n */\n\n'use strict';\n\nimport errors from './components/errors';\nimport path from 'path';\n\nexport default function(app) {\n  // Insert routes below\n  app.use('/api/things', require('./api/thing'));\n  app.use('/api/users', require('./api/user'));\n\n  app.use('/auth', require('./auth').default);\n\n  // All undefined asset or api routes should return a 404\n  app.route('/:url(api|auth|components|app|bower_components|assets)/*')\n   .get(errors[404]);\n\n  // All other routes should redirect to the index.html\n  app.route('/*')\n    .get((req, res) => {\n      res.sendFile(path.resolve(`${app.get('appPath')}/index.html`));\n    });\n}\n"
+        "/**\n * Main application routes\n */\n\n'use strict';\n\nimport errors from './components/errors';\nimport path from 'path';\n\nexport default function(app) {\n  // Insert routes below\n  app.use('/api/news', require('./api/new'));\n  app.use('/api/users', require('./api/user'));\n\n  app.use('/auth', require('./auth').default);\n\n  // All undefined asset or api routes should return a 404\n  app.route('/:url(api|auth|components|app|bower_components|assets)/*')\n   .get(errors[404]);\n\n  // All other routes should redirect to the index.html\n  app.route('/*')\n    .get((req, res) => {\n      res.sendFile(path.resolve(`${app.get('appPath')}/index.html`));\n    });\n}\n"
       ]
     },
-    "mtime": 1507831002501
+    "mtime": 1508176799571
   },
   "{\"filename\":\"/root/server/components/errors/index.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/components/errors\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
     "metadata": {
@@ -4615,7 +4600,7 @@
       "basename": "index"
     },
     "ignored": false,
-    "code": "'use strict';\n\nvar _express = require('express');\n\nvar _user = require('./user.controller');\n\nvar controller = _interopRequireWildcard(_user);\n\nvar _auth = require('../../auth/auth.service');\n\nvar auth = _interopRequireWildcard(_auth);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nvar router = new _express.Router();\n\n//router.get('/', auth.hasRole('admin'), controller.index);\n//router.delete('/:id', auth.hasRole('admin'), controller.destroy);\n//router.get('/me', auth.isAuthenticated(), controller.me);\n//router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);\n//router.get('/:id', auth.isAuthenticated(), controller.show);\n//router.post('/', controller.create);\n\nmodule.exports = router;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbImNvbnRyb2xsZXIiLCJhdXRoIiwicm91dGVyIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7O0FBQ0E7O0lBQVlBLFU7O0FBQ1o7O0lBQVlDLEk7Ozs7QUFFWixJQUFJQyxTQUFTLHFCQUFiOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQUMsT0FBT0MsT0FBUCxHQUFpQkYsTUFBakIiLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiL3Jvb3Qvc2VydmVyL2FwaS91c2VyIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuXG5pbXBvcnQge1JvdXRlcn0gZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgKiBhcyBjb250cm9sbGVyIGZyb20gJy4vdXNlci5jb250cm9sbGVyJztcbmltcG9ydCAqIGFzIGF1dGggZnJvbSAnLi4vLi4vYXV0aC9hdXRoLnNlcnZpY2UnO1xuXG52YXIgcm91dGVyID0gbmV3IFJvdXRlcigpO1xuXG4vL3JvdXRlci5nZXQoJy8nLCBhdXRoLmhhc1JvbGUoJ2FkbWluJyksIGNvbnRyb2xsZXIuaW5kZXgpO1xuLy9yb3V0ZXIuZGVsZXRlKCcvOmlkJywgYXV0aC5oYXNSb2xlKCdhZG1pbicpLCBjb250cm9sbGVyLmRlc3Ryb3kpO1xuLy9yb3V0ZXIuZ2V0KCcvbWUnLCBhdXRoLmlzQXV0aGVudGljYXRlZCgpLCBjb250cm9sbGVyLm1lKTtcbi8vcm91dGVyLnB1dCgnLzppZC9wYXNzd29yZCcsIGF1dGguaXNBdXRoZW50aWNhdGVkKCksIGNvbnRyb2xsZXIuY2hhbmdlUGFzc3dvcmQpO1xuLy9yb3V0ZXIuZ2V0KCcvOmlkJywgYXV0aC5pc0F1dGhlbnRpY2F0ZWQoKSwgY29udHJvbGxlci5zaG93KTtcbi8vcm91dGVyLnBvc3QoJy8nLCBjb250cm9sbGVyLmNyZWF0ZSk7XG5cbm1vZHVsZS5leHBvcnRzID0gcm91dGVyO1xuIl19",
+    "code": "'use strict';\n\nvar _express = require('express');\n\nvar _user = require('./user.controller');\n\nvar controller = _interopRequireWildcard(_user);\n\nvar _auth = require('../../auth/auth.service');\n\nvar auth = _interopRequireWildcard(_auth);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nvar router = new _express.Router();\n\nrouter.get('/', auth.hasRole('admin'), controller.index);\nrouter.delete('/:id', auth.hasRole('admin'), controller.destroy);\nrouter.get('/me', auth.isAuthenticated(), controller.me);\nrouter.put('/:id/password', auth.isAuthenticated(), controller.changePassword);\nrouter.get('/:id', auth.isAuthenticated(), controller.show);\nrouter.post('/', controller.create);\n\nmodule.exports = router;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbImNvbnRyb2xsZXIiLCJhdXRoIiwicm91dGVyIiwiZ2V0IiwiaGFzUm9sZSIsImluZGV4IiwiZGVsZXRlIiwiZGVzdHJveSIsImlzQXV0aGVudGljYXRlZCIsIm1lIiwicHV0IiwiY2hhbmdlUGFzc3dvcmQiLCJzaG93IiwicG9zdCIsImNyZWF0ZSIsIm1vZHVsZSIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiJBQUFBOztBQUVBOztBQUNBOztJQUFZQSxVOztBQUNaOztJQUFZQyxJOzs7O0FBRVosSUFBSUMsU0FBUyxxQkFBYjs7QUFFQUEsT0FBT0MsR0FBUCxDQUFXLEdBQVgsRUFBZ0JGLEtBQUtHLE9BQUwsQ0FBYSxPQUFiLENBQWhCLEVBQXVDSixXQUFXSyxLQUFsRDtBQUNBSCxPQUFPSSxNQUFQLENBQWMsTUFBZCxFQUFzQkwsS0FBS0csT0FBTCxDQUFhLE9BQWIsQ0FBdEIsRUFBNkNKLFdBQVdPLE9BQXhEO0FBQ0FMLE9BQU9DLEdBQVAsQ0FBVyxLQUFYLEVBQWtCRixLQUFLTyxlQUFMLEVBQWxCLEVBQTBDUixXQUFXUyxFQUFyRDtBQUNBUCxPQUFPUSxHQUFQLENBQVcsZUFBWCxFQUE0QlQsS0FBS08sZUFBTCxFQUE1QixFQUFvRFIsV0FBV1csY0FBL0Q7QUFDQVQsT0FBT0MsR0FBUCxDQUFXLE1BQVgsRUFBbUJGLEtBQUtPLGVBQUwsRUFBbkIsRUFBMkNSLFdBQVdZLElBQXREO0FBQ0FWLE9BQU9XLElBQVAsQ0FBWSxHQUFaLEVBQWlCYixXQUFXYyxNQUE1Qjs7QUFFQUMsT0FBT0MsT0FBUCxHQUFpQmQsTUFBakIiLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiL3Jvb3Qvc2VydmVyL2FwaS91c2VyIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xuXG5pbXBvcnQge1JvdXRlcn0gZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgKiBhcyBjb250cm9sbGVyIGZyb20gJy4vdXNlci5jb250cm9sbGVyJztcbmltcG9ydCAqIGFzIGF1dGggZnJvbSAnLi4vLi4vYXV0aC9hdXRoLnNlcnZpY2UnO1xuXG52YXIgcm91dGVyID0gbmV3IFJvdXRlcigpO1xuXG5yb3V0ZXIuZ2V0KCcvJywgYXV0aC5oYXNSb2xlKCdhZG1pbicpLCBjb250cm9sbGVyLmluZGV4KTtcbnJvdXRlci5kZWxldGUoJy86aWQnLCBhdXRoLmhhc1JvbGUoJ2FkbWluJyksIGNvbnRyb2xsZXIuZGVzdHJveSk7XG5yb3V0ZXIuZ2V0KCcvbWUnLCBhdXRoLmlzQXV0aGVudGljYXRlZCgpLCBjb250cm9sbGVyLm1lKTtcbnJvdXRlci5wdXQoJy86aWQvcGFzc3dvcmQnLCBhdXRoLmlzQXV0aGVudGljYXRlZCgpLCBjb250cm9sbGVyLmNoYW5nZVBhc3N3b3JkKTtcbnJvdXRlci5nZXQoJy86aWQnLCBhdXRoLmlzQXV0aGVudGljYXRlZCgpLCBjb250cm9sbGVyLnNob3cpO1xucm91dGVyLnBvc3QoJy8nLCBjb250cm9sbGVyLmNyZWF0ZSk7XG5cbm1vZHVsZS5leHBvcnRzID0gcm91dGVyO1xuIl19",
     "ast": null,
     "map": {
       "version": 3,
@@ -4626,17 +4611,29 @@
         "controller",
         "auth",
         "router",
+        "get",
+        "hasRole",
+        "index",
+        "delete",
+        "destroy",
+        "isAuthenticated",
+        "me",
+        "put",
+        "changePassword",
+        "show",
+        "post",
+        "create",
         "module",
         "exports"
       ],
-      "mappings": "AAAA;;AAEA;;AACA;;IAAYA,U;;AACZ;;IAAYC,I;;;;AAEZ,IAAIC,SAAS,qBAAb;;AAEA;AACA;AACA;AACA;AACA;AACA;;AAEAC,OAAOC,OAAP,GAAiBF,MAAjB",
+      "mappings": "AAAA;;AAEA;;AACA;;IAAYA,U;;AACZ;;IAAYC,I;;;;AAEZ,IAAIC,SAAS,qBAAb;;AAEAA,OAAOC,GAAP,CAAW,GAAX,EAAgBF,KAAKG,OAAL,CAAa,OAAb,CAAhB,EAAuCJ,WAAWK,KAAlD;AACAH,OAAOI,MAAP,CAAc,MAAd,EAAsBL,KAAKG,OAAL,CAAa,OAAb,CAAtB,EAA6CJ,WAAWO,OAAxD;AACAL,OAAOC,GAAP,CAAW,KAAX,EAAkBF,KAAKO,eAAL,EAAlB,EAA0CR,WAAWS,EAArD;AACAP,OAAOQ,GAAP,CAAW,eAAX,EAA4BT,KAAKO,eAAL,EAA5B,EAAoDR,WAAWW,cAA/D;AACAT,OAAOC,GAAP,CAAW,MAAX,EAAmBF,KAAKO,eAAL,EAAnB,EAA2CR,WAAWY,IAAtD;AACAV,OAAOW,IAAP,CAAY,GAAZ,EAAiBb,WAAWc,MAA5B;;AAEAC,OAAOC,OAAP,GAAiBd,MAAjB",
       "file": "index.js",
       "sourceRoot": "/root/server/api/user",
       "sourcesContent": [
-        "'use strict';\n\nimport {Router} from 'express';\nimport * as controller from './user.controller';\nimport * as auth from '../../auth/auth.service';\n\nvar router = new Router();\n\n//router.get('/', auth.hasRole('admin'), controller.index);\n//router.delete('/:id', auth.hasRole('admin'), controller.destroy);\n//router.get('/me', auth.isAuthenticated(), controller.me);\n//router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);\n//router.get('/:id', auth.isAuthenticated(), controller.show);\n//router.post('/', controller.create);\n\nmodule.exports = router;\n"
+        "'use strict';\n\nimport {Router} from 'express';\nimport * as controller from './user.controller';\nimport * as auth from '../../auth/auth.service';\n\nvar router = new Router();\n\nrouter.get('/', auth.hasRole('admin'), controller.index);\nrouter.delete('/:id', auth.hasRole('admin'), controller.destroy);\nrouter.get('/me', auth.isAuthenticated(), controller.me);\nrouter.put('/:id/password', auth.isAuthenticated(), controller.changePassword);\nrouter.get('/:id', auth.isAuthenticated(), controller.show);\nrouter.post('/', controller.create);\n\nmodule.exports = router;\n"
       ]
     },
-    "mtime": 1508064787685
+    "mtime": 1508176549628
   },
   "{\"filename\":\"/root/server/api/user/user.controller.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/user\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
     "metadata": {
@@ -7445,5 +7442,976 @@
       ]
     },
     "mtime": 1507831001793
+  },
+  "{\"filename\":\"/root/server/api/new/index.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/new\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireWildcard"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "../../auth/auth.service",
+            "imported": [
+              "*"
+            ],
+            "specifiers": [
+              {
+                "kind": "namespace",
+                "local": "auth"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/root/server/api/new/index.js",
+      "filenameRelative": "/root/server/api/new/index.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "index.js",
+      "sourceFileName": "index.js",
+      "sourceRoot": "/root/server/api/new",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/root/server/api/new",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "index"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nvar _auth = require('../../auth/auth.service');\n\nvar auth = _interopRequireWildcard(_auth);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nvar express = require('express');\nvar controller = require('./new.controller');\n\nvar router = express.Router();\n\nrouter.get('/', controller.index);\nrouter.get('/:id', controller.show);\nrouter.post('/', auth.hasRole('admin'), controller.create);\nrouter.put('/:id', auth.hasRole('admin'), controller.upsert);\nrouter.patch('/:id', auth.hasRole('admin'), controller.patch);\nrouter.delete('/:id', auth.hasRole('admin'), controller.destroy);\n\nmodule.exports = router;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbImF1dGgiLCJleHByZXNzIiwicmVxdWlyZSIsImNvbnRyb2xsZXIiLCJyb3V0ZXIiLCJSb3V0ZXIiLCJnZXQiLCJpbmRleCIsInNob3ciLCJwb3N0IiwiaGFzUm9sZSIsImNyZWF0ZSIsInB1dCIsInVwc2VydCIsInBhdGNoIiwiZGVsZXRlIiwiZGVzdHJveSIsIm1vZHVsZSIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiJBQUFBOztBQUlBOztJQUFZQSxJOzs7O0FBRlosSUFBSUMsVUFBVUMsUUFBUSxTQUFSLENBQWQ7QUFDQSxJQUFJQyxhQUFhRCxRQUFRLGtCQUFSLENBQWpCOztBQUVBLElBQUlFLFNBQVNILFFBQVFJLE1BQVIsRUFBYjs7QUFFQUQsT0FBT0UsR0FBUCxDQUFXLEdBQVgsRUFBZ0JILFdBQVdJLEtBQTNCO0FBQ0FILE9BQU9FLEdBQVAsQ0FBVyxNQUFYLEVBQW1CSCxXQUFXSyxJQUE5QjtBQUNBSixPQUFPSyxJQUFQLENBQVksR0FBWixFQUFpQlQsS0FBS1UsT0FBTCxDQUFhLE9BQWIsQ0FBakIsRUFBd0NQLFdBQVdRLE1BQW5EO0FBQ0FQLE9BQU9RLEdBQVAsQ0FBVyxNQUFYLEVBQW1CWixLQUFLVSxPQUFMLENBQWEsT0FBYixDQUFuQixFQUEwQ1AsV0FBV1UsTUFBckQ7QUFDQVQsT0FBT1UsS0FBUCxDQUFhLE1BQWIsRUFBcUJkLEtBQUtVLE9BQUwsQ0FBYSxPQUFiLENBQXJCLEVBQTRDUCxXQUFXVyxLQUF2RDtBQUNBVixPQUFPVyxNQUFQLENBQWMsTUFBZCxFQUFzQmYsS0FBS1UsT0FBTCxDQUFhLE9BQWIsQ0FBdEIsRUFBNkNQLFdBQVdhLE9BQXhEOztBQUVBQyxPQUFPQyxPQUFQLEdBQWlCZCxNQUFqQiIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZVJvb3QiOiIvcm9vdC9zZXJ2ZXIvYXBpL25ldyIsInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxudmFyIGV4cHJlc3MgPSByZXF1aXJlKCdleHByZXNzJyk7XG52YXIgY29udHJvbGxlciA9IHJlcXVpcmUoJy4vbmV3LmNvbnRyb2xsZXInKTtcbmltcG9ydCAqIGFzIGF1dGggZnJvbSAnLi4vLi4vYXV0aC9hdXRoLnNlcnZpY2UnO1xudmFyIHJvdXRlciA9IGV4cHJlc3MuUm91dGVyKCk7XG5cbnJvdXRlci5nZXQoJy8nLCBjb250cm9sbGVyLmluZGV4KTtcbnJvdXRlci5nZXQoJy86aWQnLCBjb250cm9sbGVyLnNob3cpO1xucm91dGVyLnBvc3QoJy8nLCBhdXRoLmhhc1JvbGUoJ2FkbWluJyksIGNvbnRyb2xsZXIuY3JlYXRlKTtcbnJvdXRlci5wdXQoJy86aWQnLCBhdXRoLmhhc1JvbGUoJ2FkbWluJyksIGNvbnRyb2xsZXIudXBzZXJ0KTtcbnJvdXRlci5wYXRjaCgnLzppZCcsIGF1dGguaGFzUm9sZSgnYWRtaW4nKSwgY29udHJvbGxlci5wYXRjaCk7XG5yb3V0ZXIuZGVsZXRlKCcvOmlkJywgYXV0aC5oYXNSb2xlKCdhZG1pbicpLCBjb250cm9sbGVyLmRlc3Ryb3kpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IHJvdXRlcjtcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "index.js"
+      ],
+      "names": [
+        "auth",
+        "express",
+        "require",
+        "controller",
+        "router",
+        "Router",
+        "get",
+        "index",
+        "show",
+        "post",
+        "hasRole",
+        "create",
+        "put",
+        "upsert",
+        "patch",
+        "delete",
+        "destroy",
+        "module",
+        "exports"
+      ],
+      "mappings": "AAAA;;AAIA;;IAAYA,I;;;;AAFZ,IAAIC,UAAUC,QAAQ,SAAR,CAAd;AACA,IAAIC,aAAaD,QAAQ,kBAAR,CAAjB;;AAEA,IAAIE,SAASH,QAAQI,MAAR,EAAb;;AAEAD,OAAOE,GAAP,CAAW,GAAX,EAAgBH,WAAWI,KAA3B;AACAH,OAAOE,GAAP,CAAW,MAAX,EAAmBH,WAAWK,IAA9B;AACAJ,OAAOK,IAAP,CAAY,GAAZ,EAAiBT,KAAKU,OAAL,CAAa,OAAb,CAAjB,EAAwCP,WAAWQ,MAAnD;AACAP,OAAOQ,GAAP,CAAW,MAAX,EAAmBZ,KAAKU,OAAL,CAAa,OAAb,CAAnB,EAA0CP,WAAWU,MAArD;AACAT,OAAOU,KAAP,CAAa,MAAb,EAAqBd,KAAKU,OAAL,CAAa,OAAb,CAArB,EAA4CP,WAAWW,KAAvD;AACAV,OAAOW,MAAP,CAAc,MAAd,EAAsBf,KAAKU,OAAL,CAAa,OAAb,CAAtB,EAA6CP,WAAWa,OAAxD;;AAEAC,OAAOC,OAAP,GAAiBd,MAAjB",
+      "file": "index.js",
+      "sourceRoot": "/root/server/api/new",
+      "sourcesContent": [
+        "'use strict';\n\nvar express = require('express');\nvar controller = require('./new.controller');\nimport * as auth from '../../auth/auth.service';\nvar router = express.Router();\n\nrouter.get('/', controller.index);\nrouter.get('/:id', controller.show);\nrouter.post('/', auth.hasRole('admin'), controller.create);\nrouter.put('/:id', auth.hasRole('admin'), controller.upsert);\nrouter.patch('/:id', auth.hasRole('admin'), controller.patch);\nrouter.delete('/:id', auth.hasRole('admin'), controller.destroy);\n\nmodule.exports = router;\n"
+      ]
+    },
+    "mtime": 1508176823466
+  },
+  "{\"filename\":\"/root/server/api/new/new.controller.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/new\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "fast-json-patch",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "jsonpatch"
+              }
+            ]
+          },
+          {
+            "source": "./new.model",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "New"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "index",
+            "req",
+            "res",
+            "show",
+            "req",
+            "res",
+            "create",
+            "req",
+            "res",
+            "upsert",
+            "req",
+            "res",
+            "patch",
+            "req",
+            "res",
+            "destroy",
+            "req",
+            "res"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "index",
+              "exported": "index"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            },
+            {
+              "kind": "local",
+              "local": "show",
+              "exported": "show"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            },
+            {
+              "kind": "local",
+              "local": "create",
+              "exported": "create"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            },
+            {
+              "kind": "local",
+              "local": "upsert",
+              "exported": "upsert"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            },
+            {
+              "kind": "local",
+              "local": "patch",
+              "exported": "patch"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            },
+            {
+              "kind": "local",
+              "local": "destroy",
+              "exported": "destroy"
+            },
+            {
+              "kind": "local",
+              "local": "req",
+              "exported": "req"
+            },
+            {
+              "kind": "local",
+              "local": "res",
+              "exported": "res"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/root/server/api/new/new.controller.js",
+      "filenameRelative": "/root/server/api/new/new.controller.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "new.controller.js",
+      "sourceFileName": "new.controller.js",
+      "sourceRoot": "/root/server/api/new",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/root/server/api/new",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "new.controller"
+    },
+    "ignored": false,
+    "code": "/**\n * Using Rails-like standard naming convention for endpoints.\n * GET     /api/news              ->  index\n * POST    /api/news              ->  create\n * GET     /api/news/:id          ->  show\n * PUT     /api/news/:id          ->  upsert\n * PATCH   /api/news/:id          ->  patch\n * DELETE  /api/news/:id          ->  destroy\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.index = index;\nexports.show = show;\nexports.create = create;\nexports.upsert = upsert;\nexports.patch = patch;\nexports.destroy = destroy;\n\nvar _fastJsonPatch = require('fast-json-patch');\n\nvar _fastJsonPatch2 = _interopRequireDefault(_fastJsonPatch);\n\nvar _new = require('./new.model');\n\nvar _new2 = _interopRequireDefault(_new);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction respondWithResult(res, statusCode) {\n  statusCode = statusCode || 200;\n  return function (entity) {\n    if (entity) {\n      return res.status(statusCode).json(entity);\n    }\n    return null;\n  };\n}\n\nfunction patchUpdates(patches) {\n  return function (entity) {\n    try {\n      // eslint-disable-next-line prefer-reflect\n      _fastJsonPatch2.default.apply(entity, patches, /*validate*/true);\n    } catch (err) {\n      return Promise.reject(err);\n    }\n\n    return entity.save();\n  };\n}\n\nfunction removeEntity(res) {\n  return function (entity) {\n    if (entity) {\n      return entity.remove().then(function () {\n        res.status(204).end();\n      });\n    }\n  };\n}\n\nfunction handleEntityNotFound(res) {\n  return function (entity) {\n    if (!entity) {\n      res.status(404).end();\n      return null;\n    }\n    return entity;\n  };\n}\n\nfunction handleError(res, statusCode) {\n  statusCode = statusCode || 500;\n  return function (err) {\n    res.status(statusCode).send(err);\n  };\n}\n\n// Gets a list of News\nfunction index(req, res) {\n  return _new2.default.find().exec().then(respondWithResult(res)).catch(handleError(res));\n}\n\n// Gets a single New from the DB\nfunction show(req, res) {\n  return _new2.default.findById(req.params.id).exec().then(handleEntityNotFound(res)).then(respondWithResult(res)).catch(handleError(res));\n}\n\n// Creates a new New in the DB\nfunction create(req, res) {\n  return _new2.default.create(req.body).then(respondWithResult(res, 201)).catch(handleError(res));\n}\n\n// Upserts the given New in the DB at the specified ID\nfunction upsert(req, res) {\n  if (req.body._id) {\n    Reflect.deleteProperty(req.body, '_id');\n  }\n  return _new2.default.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true }).exec().then(respondWithResult(res)).catch(handleError(res));\n}\n\n// Updates an existing New in the DB\nfunction patch(req, res) {\n  if (req.body._id) {\n    Reflect.deleteProperty(req.body, '_id');\n  }\n  return _new2.default.findById(req.params.id).exec().then(handleEntityNotFound(res)).then(patchUpdates(req.body)).then(respondWithResult(res)).catch(handleError(res));\n}\n\n// Deletes a New from the DB\nfunction destroy(req, res) {\n  return _new2.default.findById(req.params.id).exec().then(handleEntityNotFound(res)).then(removeEntity(res)).catch(handleError(res));\n}\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5ldy5jb250cm9sbGVyLmpzIl0sIm5hbWVzIjpbImluZGV4Iiwic2hvdyIsImNyZWF0ZSIsInVwc2VydCIsInBhdGNoIiwiZGVzdHJveSIsInJlc3BvbmRXaXRoUmVzdWx0IiwicmVzIiwic3RhdHVzQ29kZSIsImVudGl0eSIsInN0YXR1cyIsImpzb24iLCJwYXRjaFVwZGF0ZXMiLCJwYXRjaGVzIiwiYXBwbHkiLCJlcnIiLCJQcm9taXNlIiwicmVqZWN0Iiwic2F2ZSIsInJlbW92ZUVudGl0eSIsInJlbW92ZSIsInRoZW4iLCJlbmQiLCJoYW5kbGVFbnRpdHlOb3RGb3VuZCIsImhhbmRsZUVycm9yIiwic2VuZCIsInJlcSIsImZpbmQiLCJleGVjIiwiY2F0Y2giLCJmaW5kQnlJZCIsInBhcmFtcyIsImlkIiwiYm9keSIsIl9pZCIsIlJlZmxlY3QiLCJkZWxldGVQcm9wZXJ0eSIsImZpbmRPbmVBbmRVcGRhdGUiLCJuZXciLCJzZXREZWZhdWx0c09uSW5zZXJ0IiwicnVuVmFsaWRhdG9ycyJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7QUFVQTs7Ozs7UUF5RGdCQSxLLEdBQUFBLEs7UUFPQUMsSSxHQUFBQSxJO1FBUUFDLE0sR0FBQUEsTTtRQU9BQyxNLEdBQUFBLE07UUFXQUMsSyxHQUFBQSxLO1FBWUFDLE8sR0FBQUEsTzs7QUFwR2hCOzs7O0FBQ0E7Ozs7OztBQUVBLFNBQVNDLGlCQUFULENBQTJCQyxHQUEzQixFQUFnQ0MsVUFBaEMsRUFBNEM7QUFDMUNBLGVBQWFBLGNBQWMsR0FBM0I7QUFDQSxTQUFPLFVBQVNDLE1BQVQsRUFBaUI7QUFDdEIsUUFBR0EsTUFBSCxFQUFXO0FBQ1QsYUFBT0YsSUFBSUcsTUFBSixDQUFXRixVQUFYLEVBQXVCRyxJQUF2QixDQUE0QkYsTUFBNUIsQ0FBUDtBQUNEO0FBQ0QsV0FBTyxJQUFQO0FBQ0QsR0FMRDtBQU1EOztBQUVELFNBQVNHLFlBQVQsQ0FBc0JDLE9BQXRCLEVBQStCO0FBQzdCLFNBQU8sVUFBU0os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ZXNCLEdBQWYsRUFBb0JuQixHQUFwQixFQUF5QjtBQUM5QixNQUFHbUIsSUFBSU8sSUFBSixDQUFTQyxHQUFaLEVBQWlCO0FBQ2ZDLFlBQVFDLGNBQVIsQ0FBdUJWLElBQUlPLElBQTNCLEVBQWlDLEtBQWpDO0FBQ0Q7QUFDRCxTQUFPLGNBQUlILFFBQUosQ0FBYUosSUFBSUssTUFBSixDQUFXQyxFQUF4QixFQUE0QkosSUFBNUIsR0FDSlAsSUFESSxDQUNDRSxxQkFBcUJoQixHQUFyQixDQURELEVBRUpjLElBRkksQ0FFQ1QsYUFBYWMsSUFBSU8sSUFBakIsQ0FGRCxFQUdKWixJQUhJLENBR0NmLGtCQUFrQkMsR0FBbEIsQ0FIRCxFQUlKc0IsS0FKSSxDQUlFTCxZQUFZakIsR0FBWixDQUpGLENBQVA7QUFLRDs7QUFFRDtBQUNPLFNBQVNGLE9BQVQsQ0FBaUJxQixHQUFqQixFQUFzQm5CLEdBQXRCLEVBQTJCO0FBQ2hDLFNBQU8sY0FBSXVCLFFBQUosQ0FBYUosSUFBSUssTUFBSixDQUFXQyxFQUF4QixFQUE0QkosSUFBNUIsR0FDSlAsSUFESSxDQUNDRSxxQkFBcUJoQixHQUFyQixDQURELEVBRUpjLElBRkksQ0FFQ0YsYUFBYVosR0FBYixDQUZELEVBR0pzQixLQUhJLENBR0VMLFlBQVlqQixHQUFaLENBSEYsQ0FBUDtBQUlEIiwiZmlsZSI6Im5ldy5jb250cm9sbGVyLmpzIiwic291cmNlUm9vdCI6Ii9yb290L3NlcnZlci9hcGkvbmV3Iiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBVc2luZyBSYWlscy1saWtlIHN0YW5kYXJkIG5hbWluZyBjb252ZW50aW9uIGZvciBlbmRwb2ludHMuXG4gKiBHRVQgICAgIC9hcGkvbmV3cyAgICAgICAgICAgICAgLT4gIGluZGV4XG4gKiBQT1NUICAgIC9hcGkvbmV3cyAgICAgICAgICAgICAgLT4gIGNyZWF0ZVxuICogR0VUICAgICAvYXBpL25ld3MvOmlkICAgICAgICAgIC0+ICBzaG93XG4gKiBQVVQgICAgIC9hcGkvbmV3cy86aWQgICAgICAgICAgLT4gIHVwc2VydFxuICogUEFUQ0ggICAvYXBpL25ld3MvOmlkICAgICAgICAgIC0+ICBwYXRjaFxuICogREVMRVRFICAvYXBpL25ld3MvOmlkICAgICAgICAgIC0+ICBkZXN0cm95XG4gKi9cblxuJ3VzZSBzdHJpY3QnO1xuXG5pbXBvcnQganNvbnBhdGNoIGZyb20gJ2Zhc3QtanNvbi1wYXRjaCc7XG5pbXBvcnQgTmV3IGZyb20gJy4vbmV3Lm1vZGVsJztcblxuZnVuY3Rpb24gcmVzcG9uZFdpdGhSZXN1bHQocmVzLCBzdGF0dXNDb2RlKSB7XG4gIHN0YXR1c0NvZGUgPSBzdGF0dXNDb2RlIHx8IDIwMDtcbiAgcmV0dXJuIGZ1bmN0aW9uKGVudGl0eSkge1xuICAgIGlmKGVudGl0eSkge1xuICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoc3RhdHVzQ29kZSkuanNvbihlbnRpdHkpO1xuICAgIH1cbiAgICByZXR1cm4gbnVsbDtcbiAgfTtcbn1cblxuZnVuY3Rpb24gcGF0Y2hVcGRhdGVzKHBhdGNoZXMpIHtcbiAgcmV0dXJuIGZ1bmN0aW9uKGVudGl0eSkge1xuICAgIHRyeSB7XG4gICAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgcHJlZmVyLXJlZmxlY3RcbiAgICAgIGpzb25wYXRjaC5hcHBseShlbnRpdHksIHBhdGNoZXMsIC8qdmFsaWRhdGUqLyB0cnVlKTtcbiAgICB9IGNhdGNoKGVycikge1xuICAgICAgcmV0dXJuIFByb21pc2UucmVqZWN0KGVycik7XG4gICAgfVxuXG4gICAgcmV0dXJuIGVudGl0eS5zYXZlKCk7XG4gIH07XG59XG5cbmZ1bmN0aW9uIHJlbW92ZUVudGl0eShyZXMpIHtcbiAgcmV0dXJuIGZ1bmN0aW9uKGVudGl0eSkge1xuICAgIGlmKGVudGl0eSkge1xuICAgICAgcmV0dXJuIGVudGl0eS5yZW1vdmUoKVxuICAgICAgICAudGhlbigoKSA9PiB7XG4gICAgICAgICAgcmVzLnN0YXR1cygyMDQpLmVuZCgpO1xuICAgICAgICB9KTtcbiAgICB9XG4gIH07XG59XG5cbmZ1bmN0aW9uIGhhbmRsZUVudGl0eU5vdEZvdW5kKHJlcykge1xuICByZXR1cm4gZnVuY3Rpb24oZW50aXR5KSB7XG4gICAgaWYoIWVudGl0eSkge1xuICAgICAgcmVzLnN0YXR1cyg0MDQpLmVuZCgpO1xuICAgICAgcmV0dXJuIG51bGw7XG4gICAgfVxuICAgIHJldHVybiBlbnRpdHk7XG4gIH07XG59XG5cbmZ1bmN0aW9uIGhhbmRsZUVycm9yKHJlcywgc3RhdHVzQ29kZSkge1xuICBzdGF0dXNDb2RlID0gc3RhdHVzQ29kZSB8fCA1MDA7XG4gIHJldHVybiBmdW5jdGlvbihlcnIpIHtcbiAgICByZXMuc3RhdHVzKHN0YXR1c0NvZGUpLnNlbmQoZXJyKTtcbiAgfTtcbn1cblxuLy8gR2V0cyBhIGxpc3Qgb2YgTmV3c1xuZXhwb3J0IGZ1bmN0aW9uIGluZGV4KHJlcSwgcmVzKSB7XG4gIHJldHVybiBOZXcuZmluZCgpLmV4ZWMoKVxuICAgIC50aGVuKHJlc3BvbmRXaXRoUmVzdWx0KHJlcykpXG4gICAgLmNhdGNoKGhhbmRsZUVycm9yKHJlcykpO1xufVxuXG4vLyBHZXRzIGEgc2luZ2xlIE5ldyBmcm9tIHRoZSBEQlxuZXhwb3J0IGZ1bmN0aW9uIHNob3cocmVxLCByZXMpIHtcbiAgcmV0dXJuIE5ldy5maW5kQnlJZChyZXEucGFyYW1zLmlkKS5leGVjKClcbiAgICAudGhlbihoYW5kbGVFbnRpdHlOb3RGb3VuZChyZXMpKVxuICAgIC50aGVuKHJlc3BvbmRXaXRoUmVzdWx0KHJlcykpXG4gICAgLmNhdGNoKGhhbmRsZUVycm9yKHJlcykpO1xufVxuXG4vLyBDcmVhdGVzIGEgbmV3IE5ldyBpbiB0aGUgREJcbmV4cG9ydCBmdW5jdGlvbiBjcmVhdGUocmVxLCByZXMpIHtcbiAgcmV0dXJuIE5ldy5jcmVhdGUocmVxLmJvZHkpXG4gICAgLnRoZW4ocmVzcG9uZFdpdGhSZXN1bHQocmVzLCAyMDEpKVxuICAgIC5jYXRjaChoYW5kbGVFcnJvcihyZXMpKTtcbn1cblxuLy8gVXBzZXJ0cyB0aGUgZ2l2ZW4gTmV3IGluIHRoZSBEQiBhdCB0aGUgc3BlY2lmaWVkIElEXG5leHBvcnQgZnVuY3Rpb24gdXBzZXJ0KHJlcSwgcmVzKSB7XG4gIGlmKHJlcS5ib2R5Ll9pZCkge1xuICAgIFJlZmxlY3QuZGVsZXRlUHJvcGVydHkocmVxLmJvZHksICdfaWQnKTtcbiAgfVxuICByZXR1cm4gTmV3LmZpbmRPbmVBbmRVcGRhdGUoe19pZDogcmVxLnBhcmFtcy5pZH0sIHJlcS5ib2R5LCB7bmV3OiB0cnVlLCB1cHNlcnQ6IHRydWUsIHNldERlZmF1bHRzT25JbnNlcnQ6IHRydWUsIHJ1blZhbGlkYXRvcnM6IHRydWV9KS5leGVjKClcblxuICAgIC50aGVuKHJlc3BvbmRXaXRoUmVzdWx0KHJlcykpXG4gICAgLmNhdGNoKGhhbmRsZUVycm9yKHJlcykpO1xufVxuXG4vLyBVcGRhdGVzIGFuIGV4aXN0aW5nIE5ldyBpbiB0aGUgREJcbmV4cG9ydCBmdW5jdGlvbiBwYXRjaChyZXEsIHJlcykge1xuICBpZihyZXEuYm9keS5faWQpIHtcbiAgICBSZWZsZWN0LmRlbGV0ZVByb3BlcnR5KHJlcS5ib2R5LCAnX2lkJyk7XG4gIH1cbiAgcmV0dXJuIE5ldy5maW5kQnlJZChyZXEucGFyYW1zLmlkKS5leGVjKClcbiAgICAudGhlbihoYW5kbGVFbnRpdHlOb3RGb3VuZChyZXMpKVxuICAgIC50aGVuKHBhdGNoVXBkYXRlcyhyZXEuYm9keSkpXG4gICAgLnRoZW4ocmVzcG9uZFdpdGhSZXN1bHQocmVzKSlcbiAgICAuY2F0Y2goaGFuZGxlRXJyb3IocmVzKSk7XG59XG5cbi8vIERlbGV0ZXMgYSBOZXcgZnJvbSB0aGUgREJcbmV4cG9ydCBmdW5jdGlvbiBkZXN0cm95KHJlcSwgcmVzKSB7XG4gIHJldHVybiBOZXcuZmluZEJ5SWQocmVxLnBhcmFtcy5pZCkuZXhlYygpXG4gICAgLnRoZW4oaGFuZGxlRW50aXR5Tm90Rm91bmQocmVzKSlcbiAgICAudGhlbihyZW1vdmVFbnRpdHkocmVzKSlcbiAgICAuY2F0Y2goaGFuZGxlRXJyb3IocmVzKSk7XG59XG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "new.controller.js"
+      ],
+      "names": [
+        "index",
+        "show",
+        "create",
+        "upsert",
+        "patch",
+        "destroy",
+        "respondWithResult",
+        "res",
+        "statusCode",
+        "entity",
+        "status",
+        "json",
+        "patchUpdates",
+        "patches",
+        "apply",
+        "err",
+        "Promise",
+        "reject",
+        "save",
+        "removeEntity",
+        "remove",
+        "then",
+        "end",
+        "handleEntityNotFound",
+        "handleError",
+        "send",
+        "req",
+        "find",
+        "exec",
+        "catch",
+        "findById",
+        "params",
+        "id",
+        "body",
+        "_id",
+        "Reflect",
+        "deleteProperty",
+        "findOneAndUpdate",
+        "new",
+        "setDefaultsOnInsert",
+        "runValidators"
+      ],
+      "mappings": "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",
+      "file": "new.controller.js",
+      "sourceRoot": "/root/server/api/new",
+      "sourcesContent": [
+        "/**\n * Using Rails-like standard naming convention for endpoints.\n * GET     /api/news              ->  index\n * POST    /api/news              ->  create\n * GET     /api/news/:id          ->  show\n * PUT     /api/news/:id          ->  upsert\n * PATCH   /api/news/:id          ->  patch\n * DELETE  /api/news/:id          ->  destroy\n */\n\n'use strict';\n\nimport jsonpatch from 'fast-json-patch';\nimport New from './new.model';\n\nfunction respondWithResult(res, statusCode) {\n  statusCode = statusCode || 200;\n  return function(entity) {\n    if(entity) {\n      return res.status(statusCode).json(entity);\n    }\n    return null;\n  };\n}\n\nfunction patchUpdates(patches) {\n  return function(entity) {\n    try {\n      // eslint-disable-next-line prefer-reflect\n      jsonpatch.apply(entity, patches, /*validate*/ true);\n    } catch(err) {\n      return Promise.reject(err);\n    }\n\n    return entity.save();\n  };\n}\n\nfunction removeEntity(res) {\n  return function(entity) {\n    if(entity) {\n      return entity.remove()\n        .then(() => {\n          res.status(204).end();\n        });\n    }\n  };\n}\n\nfunction handleEntityNotFound(res) {\n  return function(entity) {\n    if(!entity) {\n      res.status(404).end();\n      return null;\n    }\n    return entity;\n  };\n}\n\nfunction handleError(res, statusCode) {\n  statusCode = statusCode || 500;\n  return function(err) {\n    res.status(statusCode).send(err);\n  };\n}\n\n// Gets a list of News\nexport function index(req, res) {\n  return New.find().exec()\n    .then(respondWithResult(res))\n    .catch(handleError(res));\n}\n\n// Gets a single New from the DB\nexport function show(req, res) {\n  return New.findById(req.params.id).exec()\n    .then(handleEntityNotFound(res))\n    .then(respondWithResult(res))\n    .catch(handleError(res));\n}\n\n// Creates a new New in the DB\nexport function create(req, res) {\n  return New.create(req.body)\n    .then(respondWithResult(res, 201))\n    .catch(handleError(res));\n}\n\n// Upserts the given New in the DB at the specified ID\nexport function upsert(req, res) {\n  if(req.body._id) {\n    Reflect.deleteProperty(req.body, '_id');\n  }\n  return New.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()\n\n    .then(respondWithResult(res))\n    .catch(handleError(res));\n}\n\n// Updates an existing New in the DB\nexport function patch(req, res) {\n  if(req.body._id) {\n    Reflect.deleteProperty(req.body, '_id');\n  }\n  return New.findById(req.params.id).exec()\n    .then(handleEntityNotFound(res))\n    .then(patchUpdates(req.body))\n    .then(respondWithResult(res))\n    .catch(handleError(res));\n}\n\n// Deletes a New from the DB\nexport function destroy(req, res) {\n  return New.findById(req.params.id).exec()\n    .then(handleEntityNotFound(res))\n    .then(removeEntity(res))\n    .catch(handleError(res));\n}\n"
+      ]
+    },
+    "mtime": 1508181070053
+  },
+  "{\"filename\":\"/root/server/api/new/new.model.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/new\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "mongoose",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "mongoose"
+              }
+            ]
+          },
+          {
+            "source": "./new.events",
+            "imported": [
+              "registerEvents"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "registerEvents",
+                "local": "registerEvents"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/root/server/api/new/new.model.js",
+      "filenameRelative": "/root/server/api/new/new.model.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "new.model.js",
+      "sourceFileName": "new.model.js",
+      "sourceRoot": "/root/server/api/new",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/root/server/api/new",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "new.model"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _mongoose = require('mongoose');\n\nvar _mongoose2 = _interopRequireDefault(_mongoose);\n\nvar _new = require('./new.events');\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar NewSchema = new _mongoose2.default.Schema({\n  title: String,\n  description: String,\n  link: String,\n  tags: [String],\n  avatar: String,\n  thumbnail: String,\n  created: {\n    type: Date,\n    default: Date.now,\n    index: true\n  }\n});\n\n(0, _new.registerEvents)(NewSchema);\nexports.default = _mongoose2.default.model('New', NewSchema);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5ldy5tb2RlbC5qcyJdLCJuYW1lcyI6WyJOZXdTY2hlbWEiLCJTY2hlbWEiLCJ0aXRsZSIsIlN0cmluZyIsImRlc2NyaXB0aW9uIiwibGluayIsInRhZ3MiLCJhdmF0YXIiLCJ0aHVtYm5haWwiLCJjcmVhdGVkIiwidHlwZSIsIkRhdGUiLCJkZWZhdWx0Iiwibm93IiwiaW5kZXgiLCJtb2RlbCJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztBQUVBOzs7O0FBQ0E7Ozs7QUFFQSxJQUFJQSxZQUFZLElBQUksbUJBQVNDLE1BQWIsQ0FBb0I7QUFDbENDLFNBQU9DLE1BRDJCO0FBRWxDQyxlQUFhRCxNQUZxQjtBQUdsQ0UsUUFBTUYsTUFINEI7QUFJbENHLFFBQU0sQ0FBQ0gsTUFBRCxDQUo0QjtBQUtsQ0ksVUFBUUosTUFMMEI7QUFNbENLLGFBQVdMLE1BTnVCO0FBT2xDTSxXQUFTO0FBQ1JDLFVBQU1DLElBREU7QUFFUEMsYUFBU0QsS0FBS0UsR0FGUDtBQUdQQyxXQUFPO0FBSEE7QUFQeUIsQ0FBcEIsQ0FBaEI7O0FBY0EseUJBQWVkLFNBQWY7a0JBQ2UsbUJBQVNlLEtBQVQsQ0FBZSxLQUFmLEVBQXNCZixTQUF0QixDIiwiZmlsZSI6Im5ldy5tb2RlbC5qcyIsInNvdXJjZVJvb3QiOiIvcm9vdC9zZXJ2ZXIvYXBpL25ldyIsInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxuaW1wb3J0IG1vbmdvb3NlIGZyb20gJ21vbmdvb3NlJztcbmltcG9ydCB7cmVnaXN0ZXJFdmVudHN9IGZyb20gJy4vbmV3LmV2ZW50cyc7XG5cbnZhciBOZXdTY2hlbWEgPSBuZXcgbW9uZ29vc2UuU2NoZW1hKHtcbiAgdGl0bGU6IFN0cmluZyxcbiAgZGVzY3JpcHRpb246IFN0cmluZyxcbiAgbGluazogU3RyaW5nLFxuICB0YWdzOiBbU3RyaW5nXSxcbiAgYXZhdGFyOiBTdHJpbmcsXG4gIHRodW1ibmFpbDogU3RyaW5nLFxuICBjcmVhdGVkOiB7IFxuICBcdHR5cGU6IERhdGUsXG4gICAgZGVmYXVsdDogRGF0ZS5ub3csXG4gICAgaW5kZXg6IHRydWVcbiAgfVxufSk7XG5cbnJlZ2lzdGVyRXZlbnRzKE5ld1NjaGVtYSk7XG5leHBvcnQgZGVmYXVsdCBtb25nb29zZS5tb2RlbCgnTmV3JywgTmV3U2NoZW1hKTtcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "new.model.js"
+      ],
+      "names": [
+        "NewSchema",
+        "Schema",
+        "title",
+        "String",
+        "description",
+        "link",
+        "tags",
+        "avatar",
+        "thumbnail",
+        "created",
+        "type",
+        "Date",
+        "default",
+        "now",
+        "index",
+        "model"
+      ],
+      "mappings": "AAAA;;;;;;AAEA;;;;AACA;;;;AAEA,IAAIA,YAAY,IAAI,mBAASC,MAAb,CAAoB;AAClCC,SAAOC,MAD2B;AAElCC,eAAaD,MAFqB;AAGlCE,QAAMF,MAH4B;AAIlCG,QAAM,CAACH,MAAD,CAJ4B;AAKlCI,UAAQJ,MAL0B;AAMlCK,aAAWL,MANuB;AAOlCM,WAAS;AACRC,UAAMC,IADE;AAEPC,aAASD,KAAKE,GAFP;AAGPC,WAAO;AAHA;AAPyB,CAApB,CAAhB;;AAcA,yBAAed,SAAf;kBACe,mBAASe,KAAT,CAAe,KAAf,EAAsBf,SAAtB,C",
+      "file": "new.model.js",
+      "sourceRoot": "/root/server/api/new",
+      "sourcesContent": [
+        "'use strict';\n\nimport mongoose from 'mongoose';\nimport {registerEvents} from './new.events';\n\nvar NewSchema = new mongoose.Schema({\n  title: String,\n  description: String,\n  link: String,\n  tags: [String],\n  avatar: String,\n  thumbnail: String,\n  created: { \n  \ttype: Date,\n    default: Date.now,\n    index: true\n  }\n});\n\nregisterEvents(NewSchema);\nexport default mongoose.model('New', NewSchema);\n"
+      ]
+    },
+    "mtime": 1508178743539
+  },
+  "{\"filename\":\"/root/server/api/new/new.events.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/api/new\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0:development": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "events",
+            "imported": [
+              "EventEmitter"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "EventEmitter",
+                "local": "EventEmitter"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "registerEvents"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "registerEvents",
+              "exported": "registerEvents"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/root/server/api/new/new.events.js",
+      "filenameRelative": "/root/server/api/new/new.events.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "new.events.js",
+      "sourceFileName": "new.events.js",
+      "sourceRoot": "/root/server/api/new",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/root/server/api/new",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "new.events"
+    },
+    "ignored": false,
+    "code": "/**\n * New model events\n */\n\n'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.registerEvents = undefined;\n\nvar _events = require('events');\n\nvar NewEvents = new _events.EventEmitter();\n\n// Set max event listeners (0 == unlimited)\nNewEvents.setMaxListeners(0);\n\n// Model events\nvar events = {\n  save: 'save',\n  remove: 'remove'\n};\n\n// Register the event emitter to the model events\nfunction registerEvents(New) {\n  for (var e in events) {\n    var event = events[e];\n    New.post(e, emitEvent(event));\n  }\n}\n\nfunction emitEvent(event) {\n  return function (doc) {\n    NewEvents.emit(event + ':' + doc._id, doc);\n    NewEvents.emit(event, doc);\n  };\n}\n\nexports.registerEvents = registerEvents;\nexports.default = NewEvents;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5ldy5ldmVudHMuanMiXSwibmFtZXMiOlsiTmV3RXZlbnRzIiwic2V0TWF4TGlzdGVuZXJzIiwiZXZlbnRzIiwic2F2ZSIsInJlbW92ZSIsInJlZ2lzdGVyRXZlbnRzIiwiTmV3IiwiZSIsImV2ZW50IiwicG9zdCIsImVtaXRFdmVudCIsImRvYyIsImVtaXQiLCJfaWQiXSwibWFwcGluZ3MiOiJBQUFBOzs7O0FBSUE7Ozs7Ozs7QUFFQTs7QUFDQSxJQUFJQSxZQUFZLDBCQUFoQjs7QUFFQTtBQUNBQSxVQUFVQyxlQUFWLENBQTBCLENBQTFCOztBQUVBO0FBQ0EsSUFBSUMsU0FBUztBQUNYQyxRQUFNLE1BREs7QUFFWEMsVUFBUTtBQUZHLENBQWI7O0FBS0E7QUFDQSxTQUFTQyxjQUFULENBQXdCQyxHQUF4QixFQUE2QjtBQUMzQixPQUFJLElBQUlDLENBQVIsSUFBYUwsTUFBYixFQUFxQjtBQUNuQixRQUFJTSxRQUFRTixPQUFPSyxDQUFQLENBQVo7QUFDQUQsUUFBSUcsSUFBSixDQUFTRixDQUFULEVBQVlHLFVBQVVGLEtBQVYsQ0FBWjtBQUNEO0FBQ0Y7O0FBRUQsU0FBU0UsU0FBVCxDQUFtQkYsS0FBbkIsRUFBMEI7QUFDeEIsU0FBTyxVQUFTRyxHQUFULEVBQWM7QUFDbkJYLGNBQVVZLElBQVYsQ0FBZUosUUFBUSxHQUFSLEdBQWNHLElBQUlFLEdBQWpDLEVBQXNDRixHQUF0QztBQUNBWCxjQUFVWSxJQUFWLENBQWVKLEtBQWYsRUFBc0JHLEdBQXRCO0FBQ0QsR0FIRDtBQUlEOztRQUVPTixjLEdBQUFBLGM7a0JBQ09MLFMiLCJmaWxlIjoibmV3LmV2ZW50cy5qcyIsInNvdXJjZVJvb3QiOiIvcm9vdC9zZXJ2ZXIvYXBpL25ldyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogTmV3IG1vZGVsIGV2ZW50c1xuICovXG5cbid1c2Ugc3RyaWN0JztcblxuaW1wb3J0IHtFdmVudEVtaXR0ZXJ9IGZyb20gJ2V2ZW50cyc7XG52YXIgTmV3RXZlbnRzID0gbmV3IEV2ZW50RW1pdHRlcigpO1xuXG4vLyBTZXQgbWF4IGV2ZW50IGxpc3RlbmVycyAoMCA9PSB1bmxpbWl0ZWQpXG5OZXdFdmVudHMuc2V0TWF4TGlzdGVuZXJzKDApO1xuXG4vLyBNb2RlbCBldmVudHNcbnZhciBldmVudHMgPSB7XG4gIHNhdmU6ICdzYXZlJyxcbiAgcmVtb3ZlOiAncmVtb3ZlJ1xufTtcblxuLy8gUmVnaXN0ZXIgdGhlIGV2ZW50IGVtaXR0ZXIgdG8gdGhlIG1vZGVsIGV2ZW50c1xuZnVuY3Rpb24gcmVnaXN0ZXJFdmVudHMoTmV3KSB7XG4gIGZvcih2YXIgZSBpbiBldmVudHMpIHtcbiAgICBsZXQgZXZlbnQgPSBldmVudHNbZV07XG4gICAgTmV3LnBvc3QoZSwgZW1pdEV2ZW50KGV2ZW50KSk7XG4gIH1cbn1cblxuZnVuY3Rpb24gZW1pdEV2ZW50KGV2ZW50KSB7XG4gIHJldHVybiBmdW5jdGlvbihkb2MpIHtcbiAgICBOZXdFdmVudHMuZW1pdChldmVudCArICc6JyArIGRvYy5faWQsIGRvYyk7XG4gICAgTmV3RXZlbnRzLmVtaXQoZXZlbnQsIGRvYyk7XG4gIH07XG59XG5cbmV4cG9ydCB7cmVnaXN0ZXJFdmVudHN9O1xuZXhwb3J0IGRlZmF1bHQgTmV3RXZlbnRzO1xuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "new.events.js"
+      ],
+      "names": [
+        "NewEvents",
+        "setMaxListeners",
+        "events",
+        "save",
+        "remove",
+        "registerEvents",
+        "New",
+        "e",
+        "event",
+        "post",
+        "emitEvent",
+        "doc",
+        "emit",
+        "_id"
+      ],
+      "mappings": "AAAA;;;;AAIA;;;;;;;AAEA;;AACA,IAAIA,YAAY,0BAAhB;;AAEA;AACAA,UAAUC,eAAV,CAA0B,CAA1B;;AAEA;AACA,IAAIC,SAAS;AACXC,QAAM,MADK;AAEXC,UAAQ;AAFG,CAAb;;AAKA;AACA,SAASC,cAAT,CAAwBC,GAAxB,EAA6B;AAC3B,OAAI,IAAIC,CAAR,IAAaL,MAAb,EAAqB;AACnB,QAAIM,QAAQN,OAAOK,CAAP,CAAZ;AACAD,QAAIG,IAAJ,CAASF,CAAT,EAAYG,UAAUF,KAAV,CAAZ;AACD;AACF;;AAED,SAASE,SAAT,CAAmBF,KAAnB,EAA0B;AACxB,SAAO,UAASG,GAAT,EAAc;AACnBX,cAAUY,IAAV,CAAeJ,QAAQ,GAAR,GAAcG,IAAIE,GAAjC,EAAsCF,GAAtC;AACAX,cAAUY,IAAV,CAAeJ,KAAf,EAAsBG,GAAtB;AACD,GAHD;AAID;;QAEON,c,GAAAA,c;kBACOL,S",
+      "file": "new.events.js",
+      "sourceRoot": "/root/server/api/new",
+      "sourcesContent": [
+        "/**\n * New model events\n */\n\n'use strict';\n\nimport {EventEmitter} from 'events';\nvar NewEvents = new EventEmitter();\n\n// Set max event listeners (0 == unlimited)\nNewEvents.setMaxListeners(0);\n\n// Model events\nvar events = {\n  save: 'save',\n  remove: 'remove'\n};\n\n// Register the event emitter to the model events\nfunction registerEvents(New) {\n  for(var e in events) {\n    let event = events[e];\n    New.post(e, emitEvent(event));\n  }\n}\n\nfunction emitEvent(event) {\n  return function(doc) {\n    NewEvents.emit(event + ':' + doc._id, doc);\n    NewEvents.emit(event, doc);\n  };\n}\n\nexport {registerEvents};\nexport default NewEvents;\n"
+      ]
+    },
+    "mtime": 1508176211509
   }
 }
