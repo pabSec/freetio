@@ -5,6 +5,7 @@ import routing from './main.routes';
 export class MainController {
   $http;
   allNews;
+  dates;
 
   /*@ngInject*/
   constructor($http) {
@@ -17,13 +18,13 @@ export class MainController {
     .then(res => {
       this.dates = []; 
       _.map(res.data, el => {
-        if(!this.dates.includes(el.date)) { 
-          this.dates.push(el.date) 
+        if(!this.dates.includes(el['date'])) { 
+          this.dates.push(el['date']) 
         }
       });
 
       this.dates.sort(function(a,b){
-        return new Date(a) - new Date(b);
+        return +new Date(a) - (+new Date(b));
       });
       
       res.data.forEach(element => {
