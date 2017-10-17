@@ -10,6 +10,7 @@ var NewSchema = new mongoose.Schema({
   tags: [String],
   avatar: String,
   thumbnail: String,
+  date: Date,
   created: { 
   	type: Date,
     default: Date.now,

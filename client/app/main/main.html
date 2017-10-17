@@ -6,6 +6,7 @@
 </header>
 
 <div class="container">
+
   <div class="row newsletter-row">
     <div class="col-lg-9">
       <a target="_blank" href="http://typespiration.com/"><h1>Free inspirational web font combinations with color palettes and ready-to-use HTML/CSS code</h1></a>
@@ -98,18 +99,28 @@
     </div>
   </div>
 
-  <div ng-repeat="new in $ctrl.news">
-    <div class="row newsletter-row">
-      <div class="col-lg-9">
-        <a target="_blank" href="new.link"><h1>{{new.title}}</h1></a>
-        <p>{{new.description}}</p>
+  <div ng-repeat="date in $ctrl.dates" class="dayColumn">
+    <h1 class="dateTitle">{{date | date:'dd-MM-yyyy'}}</h1>
+    <div ng-repeat="new in $ctrl.allNews[date]">
+      <div class="row newsletter-row">
+        <div class="col-lg-9 newsletter-col">
+          <a target="_blank" href="new.link"><h1>{{new.title}}</h1></a>
+          <p>{{new.description}}</p>
 
-        <img src="{{new.avatar}}" class="img-circle" alt="Cinque Terre" width="20" height="20">
-        <span ng-repeat="tag in new.tags" class="label label-default tag">{{tag}}</span>
-        <!-- <span class="label label-info">Share</span> -->
-      </div>
-      <div class="col-lg-3">
-        <img src="{{new.thumbnail}}" width="162.5" height="auto">
+          <!-- <img src="{{new.avatar}}" class="img-circle" alt="Cinque Terre" width="20" height="20"> -->
+          <span ng-repeat="tag in new.tags" class="label label-default tag">{{tag}}</span>
+          <a href="#"
+          socialshare
+          socialshare-provider="twitter"
+          socialshare-text="{{new.title}} - {{new.description}}"
+          socialshare-hashtags="freetio"
+          socialshare-url="{{new.link}}">
+          <span class="label label-info">Tweet</span>
+          </a>
+        </div>
+        <div class="col-lg-3 newsletter-col">
+          <img src="{{new.thumbnail}}" width="162.5" height="auto">
+        </div>
       </div>
     </div>
     <hr style="margin: 2px 250px !important; border-top: 2px solid #eeeeee !important;" />

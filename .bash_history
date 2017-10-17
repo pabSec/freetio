@@ -126,3 +126,12 @@ git commit -am "Image og"
 git commit -am "Getsitecontrol code"
 git push
 exit
+ls
+gulp serve
+service mongodb start
+gulp serve
+gulp serve
+git status
+git add .
+git commit -am "Form for creating news and news showed in main"
+exit

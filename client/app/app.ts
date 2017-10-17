@@ -6,6 +6,8 @@ const ngResource = require('angular-resource');
 const ngSanitize = require('angular-sanitize');
 
 const Socialshare = require('angular-socialshare');
+import 'angularjs-datepicker'
+//const Datepicker = require('angularjs-datepicker');
 
 const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
@@ -34,6 +36,7 @@ angular.module('freetioApp', [
   ngSanitize,
 
   Socialshare,
+  '720kb.datepicker',
 
   uiRouter,
   uiBootstrap,
