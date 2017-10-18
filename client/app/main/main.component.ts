@@ -23,6 +23,8 @@ export class MainController {
         }
       });
 
+      console.log(this.dates);
+
       this.dates.sort(function(a,b){
         return +new Date(a) - (+new Date(b));
       });

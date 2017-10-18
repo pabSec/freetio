@@ -135,3 +135,35 @@ git status
 git add .
 git commit -am "Form for creating news and news showed in main"
 exit
+ls
+gulp serve
+service mongodb start
+gulp serve
+npm install angularjs-datepicker --save
+gulp serve
+git status
+git add .
+git commit -am "Added some new features."
+mkdir ./.ssh
+mv id_rsa .ssh/
+git push
+ls .ssh/
+ls -la .ssh/
+git push
+git push
+gulp build
+gulp build
+gulp serve
+gulp build
+git commit -am "Added some new features."
+git push
+gulp build
+gulp serve
+git commit -am "Don't allow signup from now"
+git push
+ssh ubuntu@wellfitcontrol.com
+ls .ssh/
+ssh-add .ssh/id_rsa 
+touch .ssh/config
+nano .ssh/config 
+exit
