@@ -12,7 +12,7 @@
     <div ng-repeat="new in $ctrl.allNews[date]">
       <div class="row newsletter-row">
         <div class="col-lg-9 newsletter-col">
-          <a target="_blank" href="new.link"><h1>{{new.title}}</h1></a>
+          <a target="_blank" href="{{new.link}}"><h1>{{new.title}}</h1></a>
           <p>{{new.description}}</p>
 
           <!-- <img src="{{new.avatar}}" class="img-circle" alt="Cinque Terre" width="20" height="20"> -->

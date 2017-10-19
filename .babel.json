@@ -8409,5 +8409,185 @@
       ]
     },
     "mtime": 1508176211509
+  },
+  "{\"filename\":\"/root/server/config/local.env.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],{\"loose\":false,\"spec\":false}],[[],null],[[],null],[[],{\"spec\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"loose\":false}],[[],null],[[],null],[[],null],[[],{\"loose\":false}],[[],null],[[],{\"loose\":false}],[[],null],[[],null],[[],{\"loose\":false}],[[],{\"async\":false,\"asyncGenerators\":false}]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/root/server/config\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/root/server/config/local.env.js",
+      "filenameRelative": "/root/server/config/local.env.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false,
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "spec": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "async": false,
+            "asyncGenerators": false
+          }
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "local.env.js",
+      "sourceFileName": "local.env.js",
+      "sourceRoot": "/root/server/config",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/root/server/config",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "local.env"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\n// Use local.env.js for environment variables that will be set when the server starts locally.\n// Use for your api keys, secrets, etc. This file should not be tracked by git.\n//\n// You will need to set these on the server you deploy to.\n\nmodule.exports = {\n  DOMAIN: 'http://localhost:9000',\n  SESSION_SECRET: 'freetio-secret',\n\n  FACEBOOK_ID: 'app-id',\n  FACEBOOK_SECRET: 'secret',\n\n  TWITTER_ID: 'app-id',\n  TWITTER_SECRET: 'secret',\n\n  GOOGLE_ID: 'app-id',\n  GOOGLE_SECRET: 'secret',\n\n  // Control debug level for modules using visionmedia/debug\n  DEBUG: ''\n};\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvY2FsLmVudi5qcyJdLCJuYW1lcyI6WyJtb2R1bGUiLCJleHBvcnRzIiwiRE9NQUlOIiwiU0VTU0lPTl9TRUNSRVQiLCJGQUNFQk9PS19JRCIsIkZBQ0VCT09LX1NFQ1JFVCIsIlRXSVRURVJfSUQiLCJUV0lUVEVSX1NFQ1JFVCIsIkdPT0dMRV9JRCIsIkdPT0dMRV9TRUNSRVQiLCJERUJVRyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUFBLE9BQU9DLE9BQVAsR0FBaUI7QUFDZkMsVUFBUSx1QkFETztBQUVmQyxrQkFBZ0IsZ0JBRkQ7O0FBSWZDLGVBQWEsUUFKRTtBQUtmQyxtQkFBaUIsUUFMRjs7QUFPZkMsY0FBWSxRQVBHO0FBUWZDLGtCQUFnQixRQVJEOztBQVVmQyxhQUFXLFFBVkk7QUFXZkMsaUJBQWUsUUFYQTs7QUFhZjtBQUNBQyxTQUFPO0FBZFEsQ0FBakIiLCJmaWxlIjoibG9jYWwuZW52LmpzIiwic291cmNlUm9vdCI6Ii9yb290L3NlcnZlci9jb25maWciLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIHN0cmljdCc7XG5cbi8vIFVzZSBsb2NhbC5lbnYuanMgZm9yIGVudmlyb25tZW50IHZhcmlhYmxlcyB0aGF0IHdpbGwgYmUgc2V0IHdoZW4gdGhlIHNlcnZlciBzdGFydHMgbG9jYWxseS5cbi8vIFVzZSBmb3IgeW91ciBhcGkga2V5cywgc2VjcmV0cywgZXRjLiBUaGlzIGZpbGUgc2hvdWxkIG5vdCBiZSB0cmFja2VkIGJ5IGdpdC5cbi8vXG4vLyBZb3Ugd2lsbCBuZWVkIHRvIHNldCB0aGVzZSBvbiB0aGUgc2VydmVyIHlvdSBkZXBsb3kgdG8uXG5cbm1vZHVsZS5leHBvcnRzID0ge1xuICBET01BSU46ICdodHRwOi8vbG9jYWxob3N0OjkwMDAnLFxuICBTRVNTSU9OX1NFQ1JFVDogJ2ZyZWV0aW8tc2VjcmV0JyxcblxuICBGQUNFQk9PS19JRDogJ2FwcC1pZCcsXG4gIEZBQ0VCT09LX1NFQ1JFVDogJ3NlY3JldCcsXG5cbiAgVFdJVFRFUl9JRDogJ2FwcC1pZCcsXG4gIFRXSVRURVJfU0VDUkVUOiAnc2VjcmV0JyxcblxuICBHT09HTEVfSUQ6ICdhcHAtaWQnLFxuICBHT09HTEVfU0VDUkVUOiAnc2VjcmV0JyxcblxuICAvLyBDb250cm9sIGRlYnVnIGxldmVsIGZvciBtb2R1bGVzIHVzaW5nIHZpc2lvbm1lZGlhL2RlYnVnXG4gIERFQlVHOiAnJ1xufTtcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "local.env.js"
+      ],
+      "names": [
+        "module",
+        "exports",
+        "DOMAIN",
+        "SESSION_SECRET",
+        "FACEBOOK_ID",
+        "FACEBOOK_SECRET",
+        "TWITTER_ID",
+        "TWITTER_SECRET",
+        "GOOGLE_ID",
+        "GOOGLE_SECRET",
+        "DEBUG"
+      ],
+      "mappings": "AAAA;;AAEA;AACA;AACA;AACA;;AAEAA,OAAOC,OAAP,GAAiB;AACfC,UAAQ,uBADO;AAEfC,kBAAgB,gBAFD;;AAIfC,eAAa,QAJE;AAKfC,mBAAiB,QALF;;AAOfC,cAAY,QAPG;AAQfC,kBAAgB,QARD;;AAUfC,aAAW,QAVI;AAWfC,iBAAe,QAXA;;AAaf;AACAC,SAAO;AAdQ,CAAjB",
+      "file": "local.env.js",
+      "sourceRoot": "/root/server/config",
+      "sourcesContent": [
+        "'use strict';\n\n// Use local.env.js for environment variables that will be set when the server starts locally.\n// Use for your api keys, secrets, etc. This file should not be tracked by git.\n//\n// You will need to set these on the server you deploy to.\n\nmodule.exports = {\n  DOMAIN: 'http://localhost:9000',\n  SESSION_SECRET: 'freetio-secret',\n\n  FACEBOOK_ID: 'app-id',\n  FACEBOOK_SECRET: 'secret',\n\n  TWITTER_ID: 'app-id',\n  TWITTER_SECRET: 'secret',\n\n  GOOGLE_ID: 'app-id',\n  GOOGLE_SECRET: 'secret',\n\n  // Control debug level for modules using visionmedia/debug\n  DEBUG: ''\n};\n"
+      ]
+    },
+    "mtime": 1507831002253
   }
 }

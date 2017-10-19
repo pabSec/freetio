@@ -167,3 +167,27 @@ ssh-add .ssh/id_rsa
 touch .ssh/config
 nano .ssh/config 
 exit
+ls
+gulp serve
+service mongodb start
+gulp serve
+git status
+git add .
+git status
+rm -r .ssh
+git status
+git rm 
+git rm .
+git add/rm
+git status
+git commit -am "Pre-launch"
+git push
+git status
+git push
+exit
+ls
+gulp serve
+gulp serve
+gulp build
+gulp serve
+exit
